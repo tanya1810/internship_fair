@@ -1,52 +1,65 @@
 <!DOCTYPE html>
-<html>
-    
-    <head> 
-        <style>
-            body{
-                background-color:white;
-            }
-        </style>
-        <link rel="stylesheet" type="text/css" href="login.css">
-        <link rel="stylesheet" type="text/css" href="style.css">
-        
-    </head>
-    <body>
-        
-        <div class="imgcontainer">
-            
-            <img src="http://cdn.onlinewebfonts.com/svg/img_24787.png " alt="Avatar" class="avatar">
-          </div>
-          
-          <div class="container">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" required>
-            <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-    <button type="submit">Login</button>
-    <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
-    </label>
-  </div>
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-   
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login/Sign Up</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'><link rel="stylesheet" href="./login.css">
+  <style>
 
-  </div>
-          
-   
-<div class="footer-contact-info">
-    <p><i class="zmdi zmdi-map"></i><a style="color: #9293bc;" href="https://g.page/ThaparInstitute?share" target="_blank"> Thapar Institute of Engineering<br> and Technology,
-            Patiala</a> </p>
-    <p><i class="zmdi zmdi-phone"></i> Animesh Bisen: <a style="color: #9293bc;" href="tel:9140470096">+91 91404-70096</a></p>
-    <p><i class="zmdi zmdi-phone"></i> Anmol Jindal: <a style="color: #9293bc;" href="tel:8264245458">+91 82642-45458</a></p>
-    <p><i class="zmdi zmdi-email"></i><a href="mailto:tuedcell@gmail.com" style="color: #9293bc">tuedcell@gmail.com</a></p>
-    <p><i class="zmdi zmdi-globe"></i><a href="https://www.edctiet.com" style="color: #9293bc;">www.edctiet.com/</a>
-    </p>
+  </style>
+</head>
+<body>
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="#">
+			<h1>Create Account</h1>
+			<!-- <div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div>
+			<span>or use your email for registration</span> -->
+			<input type="text" placeholder="Name" />
+			<input type="email" placeholder="Email" />
+			<input type="password" placeholder="Password" />
+			<button style="color:black;">Sign Up</button>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="#">
+			<h1>Sign in</h1>
+			<!-- <div class="social-container">
+				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div>
+			<span>or use your account</span> -->
+			<input type="email" placeholder="Email" />
+			<input type="password" placeholder="Password" />
+			<a href="#">Forgot your password?</a>
+			<button style="color:black;">Sign In</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To access the internship fair portal, please login first</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Don't Have An Account?</h1>
+				<p>Enter your details and start your journey</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
 
-</div>
-</div>
-</div>
+<footer>
+</footer>
+<!-- partial -->
+  <script  src="./login.js"></script>
+
 </body>
 </html>

@@ -13,7 +13,6 @@ def studentregister(request):
         form = StudentRegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
-            user.is_student     = True
             user.email          = form.cleaned_data.get('email')
             user.save()
             student             = StudentProfile.objects.create(user=user)
@@ -35,7 +34,6 @@ def studentregister(request):
 
 @login_required
 def profileupdate(request):
-    if request.user.is_student:
         if request.method == 'POST':
             form = StudentUpdateForm(request.POST, request.FILES, instance=request.user.student_profile)
 
@@ -49,7 +47,19 @@ def profileupdate(request):
         context = {
             'form': form,
         }
-    else:
-        return redirect('home')
 
-    return render(request, 'user/profile-update.html', context)
+        return render(request, 'user/profile-update.html', context)
+
+@login_required   
+def profile(request):
+        context = {
+            'object': request.user.student_profile,
+        }
+
+        return render(request, 'user/student_profile.html', context)
+    
+
+
+@login_required
+def logout(request):
+	return render(request, 'startupEcosystem/ecosystem-home.html')

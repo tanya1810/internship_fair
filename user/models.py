@@ -26,16 +26,5 @@ class User(AbstractUser):
     def __str__(self):
         return self.email
     
-class StudentProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, related_name ='student_profile')
-    name = models.CharField(max_length=60, default='')
-    city_of_residence = models.CharField(max_length=40, default='')
-    college = models.CharField(max_length=50, default='')
-    area_of_specialization = models.CharField(max_length=60, default='')
-    year_of_study = models.IntegerField(default=1)
-    contact = PhoneNumberField(blank=False)
-    cgpa = models.FloatField(default=0)
 
-    def __str__(self):
-        return self.user.email
 

@@ -37,18 +37,18 @@ def Internships(request, pg=1):
       	'paginator': paginator,
         'internships': paginator.page(pg)
     }
-    return render(request, 'internshipPortal/Internship.html', context)
+    return render(request, 'home/index.html', context)
 
-def MyInternships(request):
-    pg = 1
-    if(request.user.is_authenticated):
-        internships = InternshipApplication.objects.filter(applied_by=request.user.student_profile)
-        context = {
-            'internships': internships,
-        }
-        return render(request, 'internshipPortal/MyInternshipStudent.html', context)
-    else:
-        redirect(internships, pg=pg)
+# def MyInternships(request):
+#     pg = 1
+#     if(request.user.is_authenticated):
+#         internships = InternshipApplication.objects.filter(applied_by=request.user.student_profile)
+#         context = {
+#             'internships': internships,
+#         }
+#         return render(request, 'internshipPortal/MyInternshipStudent.html', context)
+#     else:
+#         redirect(internships, pg=pg)
     
     
 

@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from user.models import StudentProfile
+from user.models import User
 from markdown_deux import markdown
 from django.utils.safestring import mark_safe
 from phonenumber_field.modelfields import PhoneNumberField
@@ -45,7 +45,7 @@ class InternshipApplication(models.Model):
     internship = models.ForeignKey(Internship, on_delete=models.CASCADE, default='', related_name='internship')
     message = models.TextField(max_length = 1200, blank=True, default='')
     resume = models.URLField(default='', help_text='Add the drive link to your resume.')
-    applied_by = models.ForeignKey(StudentProfile, on_delete=models.CASCADE, default='', related_name='intern')
+    applied_by = models.ForeignKey(User, on_delete=models.CASCADE, default='', related_name='intern')
     
     def __str__(self):
         return self.internship.startup.startup_name + "(" + str(self.internship.id) + ")" + " - " + self.applied_by.name

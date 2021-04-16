@@ -23,6 +23,5 @@ class ApplicationForm(forms.ModelForm):
     class Meta:
         model = InternshipApplication
         fields = [
-            'message',
-            'resume',
+            
         ]

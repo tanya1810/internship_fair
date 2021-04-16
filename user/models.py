@@ -17,6 +17,7 @@ class CustomUserManager(BaseUserManager):
 class User(AbstractUser):
     username = None
     email = models.EmailField(verbose_name='Email Address', unique=True)
+    resume = models.URLField(default='', help_text='Add the drive link to your resume.')
     
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []

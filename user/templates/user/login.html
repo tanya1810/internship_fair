@@ -20,6 +20,8 @@
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your email for registration</span> -->
+
+			{% csrf_token %}
 			
 			<input type="text" name="name" maxlength="60" required="" id="id_name" placeholder="Name">
 			<input type="email" name="email" autofocus="" required="" id="id_email" placeholder="Email" />
@@ -38,6 +40,8 @@
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
 			<span>or use your account</span> -->
+
+			{% csrf_token %}
 			
 			<input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="254" required="" id="id_username" placeholder="Email">
 			<input type="password" name="password" autocomplete="current-password" required="" id="id_password" placeholder="Password">
@@ -50,7 +54,7 @@
 			<div class="overlay-panel overlay-left">
 				<h1>Welcome Back!</h1>
 				<p>To access the internship fair portal, please login first</p>
-				<!-- <button class="ghost" id="signIn">Sign In</button> -->
+				<button class="ghost" id="signIn">Sign In</button>
 			</div>
 			<div class="overlay-panel overlay-right">
 				<h1>Don't Have An Account?</h1>

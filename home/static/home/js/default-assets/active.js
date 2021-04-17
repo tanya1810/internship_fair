@@ -29,7 +29,7 @@
         var welcomeSlider = $('.welcome-slides');
         welcomeSlider.owlCarousel({
             items: 1,
-            loop: false,
+            loop: true,
             autoplay: false,
             smartSpeed: 1000,
             autoplayTimeout: 10000,

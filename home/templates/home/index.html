@@ -1,281 +1,36 @@
+{% extends "home/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8">
-	<meta name="description" content="">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-	<title>E-Summit 2021</title>
-
-
-	<link rel="stylesheet" href="{% static 'home/if cards.css' %}">
-	<link rel="stylesheet" href="{% static 'home/classy.css' %}">
-	<link rel="stylesheet" href="{% static 'home/style1.css' %}">
-
-	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
-
-	<link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
-
-	<link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
-
-	<link rel="icon" href="{%static 'home/img/favicon.ico' %}">
-
-	<link rel="stylesheet" href="{%static 'home/style.css' %}">
-	<style>
-		@media only screen and (min-width: 768px) {
-
-			#desktop {
-				display: block;
-			}
-
-			#mobile {
-				display: none;
-			}
-		}
-
-		/* @media only screen and (max-width: 768px) {
-
-			#logo {
-				width: 350px;
-				height: 100px;
-			}
-		} */
-
-		@media only screen and (max-width: 768px) {
-
-			#desktop {
-				display: none;
-			}
-
-			#mobile {
-				display: block;
-			}
-
-			.input-group input {
-				position: absolute;
-				border: 0;
-				box-shadow: none;
-				background-color: rgba(255, 255, 255, 0);
-				top: 0;
-				height: 60px;
-				width: 100%;
-				padding: 0 43px;
-				box-sizing: border-box;
-				z-index: 3;
-				display: block;
-				color: #1a6fc4;
-				font-size: 15px;
-				font-family: "Poppins", sans-serif;
-				transition: top 0.1s ease-in-out;
-			}
-
-			.input-group label {
-				position: absolute;
-				border: 0;
-				top: 5px;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				z-index: 2;
-				display: flex;
-				align-items: center;
-				padding: 0 53px;
-				box-sizing: border-box;
-				transition: all 0.1s ease-in-out;
-				cursor: text;
-			}
-		}
-
-		
-
-		@media (max-width: 991px) {
-			.faq {
-				margin-bottom: 30px;
-			}
-
-			.faq .card .card-header .faq-title {
-				line-height: 26px;
-				margin-top: 10px;
-			}
-
-			.welcome-area .icon-scroll {
-				display: none;
-			}
-		}
-	</style>
-
-	<style type="text/css">
-		body {
-			background-color: #434c50;
-			min-height: 100vh;
-			font: normal 16px sans-serif;
-			padding: 0 0;
-		}
-
-		
-
-		.baguetteBox-button {
-			background-color: transparent !important;
-		}
-
-		.navlogo {
-			width: 200px;
-			height: 150px;
-		}
-
-		@media(max-width: 768px) {
-
-			#space {
-				margin-bottom: 0px !important;
-			}
-
-			body {
-				padding: 0;
-			}
-
-			.navlogo {
-				width: 260px;
-				height: 140px;
-			}
-
-			.welcome-area .icon-scroll {
-				display: none;
-			}
-
-			.mkkh {
-				margin-bottom: 0;
-			}
-
-			.input-group input {
-				position: absolute;
-				border: 0;
-				box-shadow: none;
-				background-color: rgba(255, 255, 255, 0);
-				top: 0;
-				height: 60px;
-				width: 100%;
-				padding: 0 43px;
-				box-sizing: border-box;
-				z-index: 3;
-				display: block;
-				color: #1a6fc4;
-				font-size: 15px;
-				font-family: "Poppins", sans-serif;
-				transition: top 0.1s ease-in-out;
-			}
-
-			.input-group label {
-				position: absolute;
-				border: 0;
-				top: 5px;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				z-index: 2;
-				display: flex;
-				align-items: center;
-				padding: 0 53px;
-				box-sizing: border-box;
-				transition: all 0.1s ease-in-out;
-				cursor: text;
-			}
-		}
-	</style>
-
-	
-
-	<script type="text/javascript">
-		window.onscroll = function (ev) {
-			if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-				var home = document.getElementById("nav_home")
-				console.log(nav_home)
-				var contact = document.getElementById("nav_contact")
-				console.log(nav_contact)
-				home.classList.remove("active")
-				contact.classList.add("active")
-				console.log("at end")
-			}
-			else {
-				var home = document.getElementById("nav_home")
-				console.log(nav_home)
-				var contact = document.getElementById("nav_contact")
-				console.log(nav_contact)
-				home.classList.add("active")
-				contact.classList.remove("active")
-				console.log(" not at end")
-			}
-		};
-	</script>
-</head>
-
-<body>
-
-	<div id="preloader">
-		<div class="loader"></div>
-	</div>
-
-
-	<header class="header-area">
-		<div class="classy-nav-container breakpoint-off">
-			<div class="container">
-
-				<nav class="classy-navbar justify-content-between" id="conferNav">
-
-					<a class="nav-brand" href="index-2.html"><img src="{% static 'home/img/core-img/esummit.png' %}"
-							alt="" class="navlogo"></a>
-
-					<div class="classy-navbar-toggler">
-						<span class="navbarToggler"><span></span><span></span><span></span></span>
-					</div>
-
-					<div class="classy-menu">
-
-						<div class="classycloseIcon">
-							<div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-						</div>
-
-						<div class="classynav">
-							<ul id="nav">
-								<li><a href="#home">Home</a></li>
-								<li><a href="#about">About Us</a></li>
-								<!-- <li><a href="#speakers">Speakers</a></li> -->
-								<!-- <li><a href="#schedule">Schedule</a></li> -->
-								<li><a href="#events">Events</a></li>
-								<li><a href="#register">Register</a></li>
-								<li><a href="#faq">FAQs</a></li>
-								<li><a href="#contact">Contact Us</a></li>
-							</ul>
-
-							<!-- <a href="#" class="btn confer-btn mt-3 mt-lg-0 ml-3 ml-lg-5">Know More About Us<i
-									class="zmdi zmdi-long-arrow-right"></i></a> -->
-						</div>
-
-					</div>
-				</nav>
-			</div>
-		</div>
-		{% if messages %}
-		{% for message in messages %}
-		<ul class="messages"
-			style="background: #FCFF00; width: 100%; margin-top: 20vh ; color: rgb(255,255,255); text-align: center; margin: 0px; padding: 10px;">
-			<h1 style="font-weight: 600; font-size: 25px; margin: 0px;">{{ message }}</h1>
-		</ul>
-		{% endfor %}
-		{% endif %}
-	</header>
-
-
-
+{% block body %}
 
 	<section class="welcome-area" id="desktop">
 
 		<div class="welcome-slides owl-carousel">
 
 			<div class="single-welcome-slide bg-img bg-overlay jarallax" style="position: relative;">
-				<img src="{% static 'home/test.png' %}">
+				<video playsinline autoplay muted loop id="myVideo" style="width: 100%; position: relative; z-index: 0;">
+					<source src="{%static 'home/esummitlrweb.mp4' %}" type="video/mp4">
+				</video>
+				<!-- <div class="container h-100" style="position: absolute; top: 10%; right: 10%; z-index: 99;">
+					<div class="row h-100 align-items-center">
+						<div class="col-12">
+							<div class="welcome-text text-right">
+								<h2 data-animation="fadeInUp" data-delay="300ms">E-SUMMIT <br>2021</h2>
+
+
+								<div class="input-group" style="position: absolute; right: 0px;">
+									<input type="text" name="email" value="" required="required" placeholder="Email" />
+									<label for="text-1542372332072" style="margin-bottom: 0;">Email</label>
+
+								</div>
+								<br><br><br><br>
+								<div class="hero-btn-group" data-animation="fadeInUp" data-delay="700ms">
+									<a href="#" class=" confer-btn">Subscribe Now <i
+											class="zmdi zmdi-long-arrow-right"></i></a>
+								</div> 
+							</div>
+						</div>
+					</div>
+				</div> -->
 			</div>
 		</div>
 
@@ -288,7 +43,10 @@
 
 			<div class="single-welcome-slide bg-img bg-overlay jarallax"
 				style="background-color: black; position: relative;">
-				<img src="{% static 'home/test.png' %}">
+				<video autoplay muted loop id="myVideo"
+					style="width: 100%; position: relative; margin-top: 13vh; z-index: 0;">
+					<source src="{%static 'home/esummitlrweb.mp4' %}" type="video/mp4">
+				</video>
 			</div>
 		</div>
 
@@ -296,204 +54,67 @@
 	</section>
 
 
-
+	<section class="our-blog-area bg-img bg-gradient-overlay section-padding-100-60" style="background-image: url(img/bg-img/17.jpg);">
 		<div class="container">
-			<h1>EDC</h1>
-		</div>
-
-
-
-
-	<footer id="contact" class="footer-area bg-img bg-overlay-2 section-padding-100-0">
-
-		<div class="main-footer-area">
-			<div class="container">
-				<div class="row">
-
-					<div class="col-12 col-sm-6 col-lg-6">
-						<div class="single-footer-widget mb-60 wow fadeInUp" data-wow-delay="300ms">
-
-							<!-- <a href="#" class="footer-logo"><img src="img/core-img/logo.png" alt=""></a> -->
-							<h5 class="widget-title">About Us</h5>
-							<p> EDC, TIET has been established with an aim to foster and nurture talented young minds
-								with a vision. We believe that entrepreneurship is the key to unlock India's talent and
-								untapped potential and thus we are striving to create, foster and promote
-								entrepreneurship.
-							</p>
-
-							<div class="social-info">
-								<a target="_blank"
-									href="https://www.linkedin.com/school/entrepreneurship-development-cell-thapar-university/"><i
-										class="zmdi zmdi-linkedin"></i></a>
-								<a target="_blank" href="https://www.instagram.com/edc_tiet/"><i
-										class="zmdi zmdi-instagram"></i></a>
-								<a target="_blank" href="https://www.facebook.com/tuedcell/"><i
-										class="zmdi zmdi-facebook"></i></a>
-								<a target="_blank" href="https://mobile.twitter.com/edctiet"><i
-										class="zmdi zmdi-twitter"></i></a>
-							</div>
+			<div class="row">
+				<div class="col-12">
+					
+				</div>
+				<div class="col-12 col-md-6 col-lg-4">
+					<div class="single-blog-area wow fadeInUp" data-wow-delay="300ms">
+						<div class="single-blog-thumb">
+							<img src="img/bg-img/18.jpg" alt="">
+						</div>
+						<div class="single-blog-text text-center">
+							<img style="height: 15em; width: 15em;" src="{% static 'home/EDC.png' %}">
+							<a class="blog-title" href="#">Street Food Convention</a><br>
+								<!-- <div class="post-meta">
+									<a class="post-date" href="#"><i class="zmdi zmdi-alarm-check"></i> January 14, 2019</a>
+									<a class="post-author" href="#"><i class="zmdi zmdi-account"></i> Laura Green</a>
+								</div>
+							<p>Street Food Convention will showcase products like Packed food, beef and lamb, street food.</p> -->
+							<a class="btn btn-info btn-sm btn-collapsible"><i class="fa fa-cloud-download"></i> <span>Download</span></a>
+							<a class="btn btn-info btn-sm btn-collapsible"><i class="fa fa-cloud-download"></i> <span>Download</span></a>
+						</div>
+						
+					</div>
+				</div>
+				<div class="col-12 col-md-6 col-lg-4">
+					<div class="single-blog-area wow fadeInUp" data-wow-delay="300ms">
+						<div class="single-blog-thumb">
+							<img src="img/bg-img/19.jpg" alt="">
+						</div>
+						<div class="single-blog-text text-center">
+							<a class="blog-title" href="#">Tedx Moscow Conference</a>
+								<div class="post-meta">
+									<a class="post-date" href="#"><i class="zmdi zmdi-alarm-check"></i>January 14, 2019</a>
+									<a class="post-author" href="#"><i class="zmdi zmdi-account"></i>Laura Green</a>
+								</div>
+							<p>Street Food Convention will showcase products like Packed food, beef and lamb, street food.</p>
+						</div>
+						<div class="blog-btn">
+							<a href="#"><i class="zmdi zmdi-long-arrow-right"></i></a>
 						</div>
 					</div>
-
-					<div class="col-12 col-sm-6 col-lg-4">
-						<div class="single-footer-widget mb-60 wow fadeInUp" data-wow-delay="300ms">
-
-							<h5 class="widget-title">Contact</h5>
-
-							<div class="footer-contact-info">
-								<p><i class="zmdi zmdi-map"></i><a style="color: #9293bc;"
-										href="https://g.page/ThaparInstitute?share" target="_blank"> Thapar Institute of
-										Engineering<br> and Technology,
-										Patiala</a> </p>
-								<p><i class="zmdi zmdi-phone"></i> Nishant Gupta: <a style="color: #9293bc;"
-										href="tel:8859014946">+91 88590 14946</a></p>
-								<p><i class="zmdi zmdi-phone"></i> Prachi Singhroha: <a style="color: #9293bc;"
-										href="tel:7988188907">+91 79881 88907</a></p>
-								<p><i class="zmdi zmdi-email"></i><a href="mailto:tuedcell@gmail.com"
-										style="color: #9293bc">esummit@edctiet.com</a></p>
-								<p><i class="zmdi zmdi-globe"></i><a href="https://www.edctiet.com"
-										style="color: #9293bc;">www.edctiet.com/</a>
-								</p>
-							</div>
+				</div>
+		
+				<div class="col-12 col-md-6 col-lg-4">
+					<div class="single-blog-area wow fadeInUp" data-wow-delay="300ms">
+						<div class="single-blog-thumb">
+							<img src="img/bg-img/20.jpg" alt="">
 						</div>
-					</div>
-
-					<div class="col-12 col-sm-6 col-lg-2">
-						<div class="single-footer-widget mb-60 wow fadeInUp" data-wow-delay="300ms">
-
-							<h5 class="widget-title">Events</h5>
-
-							<ul class="footer-nav">
-								<li><a href="#">UNWIND</a></li>
-								<li><a href="#">ELEVATE</a></li>
-								<li><a href="#">INTERNSHIP FAIR</a></li>
-							</ul>
+						<div class="single-blog-text text-center">
+							<a class="blog-title" href="#">Los Angeles Institute</a>
+								<div class="post-meta">
+									<a class="post-date" href="#"><i class="zmdi zmdi-alarm-check"></i>January 14, 2019</a>
+									<a class="post-author" href="#"><i class="zmdi zmdi-account"></i>Laura Green</a>
+								</div>
+							<p>Street Food Convention will showcase products like Packed food, beef and lamb, street food.</p>
 						</div>
+						
 					</div>
 				</div>
 			</div>
 		</div>
-
-		<div class="container">
-			<div class="copywrite-content">
-				<div class="row">
-
-					<div class="col-12 col-md-12">
-						<div class="copywrite-text">
-							<p>
-								Copyright &copy;
-								<script data-cfasync="false"
-									src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-								<script>document.write(new Date().getFullYear());</script> All rights reserved | This
-								website is made
-								with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
-									href="https://www.edctiet.com/tech-team/" target="_blank">Technical Team, EDC-TIET</a>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-
-	<script>
-		function countdown() {
-			var now = new Date();
-			var over_time = new Date("April 25, 2021 12:00:01");
-
-			var now_time = now.getTime();
-			var over = over_time.getTime();
-			var end_time = over - now_time;
-
-			var days = Math.floor(end_time / (1000 * 60 * 60 * 24));
-			var hours = Math.floor((end_time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-			var minutes = Math.floor((end_time % (1000 * 60 * 60)) / (1000 * 60));
-			var seconds = Math.floor((end_time % (1000 * 60)) / 1000);
-			if (hours < "10") { hours = "0" + hours; }
-			if (minutes < "10") { minutes = "0" + minutes; }
-			if (seconds < "10") { seconds = "0" + seconds; }
-
-			console.log(days)
-
-			document.getElementById("day").innerHTML = days;
-			document.getElementById("hour").innerHTML = hours;
-			document.getElementById("minute").innerHTML = minutes;
-			document.getElementById("second").innerHTML = seconds;
-
-			setTimeout(countdown, 1000);
-
-		}
-		countdown();
-	</script>
-
-	<script>
-		$('a[onclick]').each(function () {
-			$(this).data('onclick', this.onclick);
-
-			this.onclick = function (event) {
-				if ($(this).attr('disabled')) { // HERE
-					return false;
-				};
-
-				$(this).data('onclick').call(this, event || window.event);
-			};
-		});
-	</script>
-
-	<script src="{%static 'home/js/jquery.min.js' %}"></script>
-
-	<script src="{%static 'home/js/popper.min.js' %}"></script>
-
-	<script src="{%static 'home/js/bootstrap.min.js' %}"></script>
-
-	<script src="{%static 'home/js/confer.bundle.js' %}"></script>
-
-	<script src="{%static 'home/js/default-assets/active.js' %}"></script>
-
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
-
-		gtag('config', 'UA-23581568-13');
-	</script>
-
-	<script>
-		function countdown() {
-			var now = new Date();
-			var over_time = new Date("April 25, 2021 12:00:01");
-
-			var now_time = now.getTime();
-			var over = over_time.getTime();
-			var end_time = over - now_time;
-
-			var days = Math.floor(end_time / (1000 * 60 * 60 * 24));
-			var hours = Math.floor((end_time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-			var minutes = Math.floor((end_time % (1000 * 60 * 60)) / (1000 * 60));
-			var seconds = Math.floor((end_time % (1000 * 60)) / 1000);
-			if (hours < "10") {
-				hours = "0" + hours;
-			}
-			if (minutes < "10") {
-				minutes = "0" + minutes;
-			}
-			if (seconds < "10") {
-				seconds = "0" + seconds;
-			}
-
-			console.log(days)
-
-			document.getElementById("day").innerHTML = days;
-			document.getElementById("hour").innerHTML = hours;
-			document.getElementById("minute").innerHTML = minutes;
-			document.getElementById("second").innerHTML = seconds;
-
-			setTimeout(countdown, 1000);
-
-		}
-		countdown();
-	</script>
-</body>
-
-</html>
+	</section>
+{% endblock body %}

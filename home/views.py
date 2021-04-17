@@ -89,7 +89,7 @@ def InternshipDetailView(request, pk):
 
     internship = Internship.objects.filter(id=pk).first()
     if(request.user.is_authenticated):
-        applied_by = InternshipApplication.objects.filter(applied_by=request.user.User)
+        applied_by = InternshipApplication.objects.filter(applied_by=request.user)
         for applicant in applied_by:
             if(internship == applicant.internship):
                 applied = True

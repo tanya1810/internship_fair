@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,45 +10,20 @@
 
 	<title>E-Summit 2021</title>
 
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
-	<link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
+
 	<link rel="stylesheet" href="{% static 'home/if cards.css' %}">
 	<link rel="stylesheet" href="{% static 'home/classy.css' %}">
 	<link rel="stylesheet" href="{% static 'home/style1.css' %}">
-	<style>
-		.card-image {
-		object-fit: contain;
-		max-width: 100%;
-		height: 100px;
-		border-radius: 8px;
-		}
 
-		.gmeet-btn {
-		padding: 10px 18px;
-		margin: 10px 0px;
-		color: #fff;
-		text-decoration: none;
-		text-transform: uppercase;
-		font-size: 18px;
-		letter-spacing: 2px;
-		border-radius: 40px;
-		background: linear-gradient(90deg, #0162c8, #55e7fc);
-		text-align: right;
-		
-		}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-		h5 {
-		text-align: center;
-		}
-	</style>
+	<link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
 
+	<link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
 
-	<link rel="icon" href="./img/favicon.ico">
+	<link rel="icon" href="{%static 'home/img/favicon.ico' %}">
 
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="{%static 'home/style.css' %}">
 	<style>
 		@media only screen and (min-width: 768px) {
 
@@ -59,6 +35,14 @@
 				display: none;
 			}
 		}
+
+		/* @media only screen and (max-width: 768px) {
+
+			#logo {
+				width: 350px;
+				height: 100px;
+			}
+		} */
 
 		@media only screen and (max-width: 768px) {
 
@@ -76,9 +60,104 @@
 				box-shadow: none;
 				background-color: rgba(255, 255, 255, 0);
 				top: 0;
-				height: 18px;
-				width: 80%;
+				height: 60px;
+				width: 100%;
+				padding: 0 43px;
+				box-sizing: border-box;
+				z-index: 3;
+				display: block;
+				color: #1a6fc4;
+				font-size: 15px;
+				font-family: "Poppins", sans-serif;
+				transition: top 0.1s ease-in-out;
+			}
+
+			.input-group label {
+				position: absolute;
+				border: 0;
+				top: 5px;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				z-index: 2;
+				display: flex;
+				align-items: center;
 				padding: 0 53px;
+				box-sizing: border-box;
+				transition: all 0.1s ease-in-out;
+				cursor: text;
+			}
+		}
+
+		
+
+		@media (max-width: 991px) {
+			.faq {
+				margin-bottom: 30px;
+			}
+
+			.faq .card .card-header .faq-title {
+				line-height: 26px;
+				margin-top: 10px;
+			}
+
+			.welcome-area .icon-scroll {
+				display: none;
+			}
+		}
+	</style>
+
+	<style type="text/css">
+		body {
+			background-color: #434c50;
+			min-height: 100vh;
+			font: normal 16px sans-serif;
+			padding: 0 0;
+		}
+
+		
+
+		.baguetteBox-button {
+			background-color: transparent !important;
+		}
+
+		.navlogo {
+			width: 200px;
+			height: 150px;
+		}
+
+		@media(max-width: 768px) {
+
+			#space {
+				margin-bottom: 0px !important;
+			}
+
+			body {
+				padding: 0;
+			}
+
+			.navlogo {
+				width: 260px;
+				height: 140px;
+			}
+
+			.welcome-area .icon-scroll {
+				display: none;
+			}
+
+			.mkkh {
+				margin-bottom: 0;
+			}
+
+			.input-group input {
+				position: absolute;
+				border: 0;
+				box-shadow: none;
+				background-color: rgba(255, 255, 255, 0);
+				top: 0;
+				height: 60px;
+				width: 100%;
+				padding: 0 43px;
 				box-sizing: border-box;
 				z-index: 3;
 				display: block;
@@ -106,208 +185,30 @@
 		}
 	</style>
 
-	<style type="text/css">
-		body {
-			background-color: #434c50;
-			min-height: 100vh;
-			font: normal 16px sans-serif;
-			padding: 0 0;
-		}
+	
 
-		.container.gallery-container {
-			background-color: #fff;
-			color: #35373a;
-			min-height: 100vh;
-			padding: 30px 50px;
-		}
-
-		.gallery-container h1 {
-			text-align: center;
-			margin-top: 50px;
-			font-family: 'Droid Sans', sans-serif;
-			font-weight: bold;
-		}
-
-		.gallery-container p.page-description {
-			text-align: center;
-			margin: 25px auto;
-			font-size: 18px;
-			color: #999;
-		}
-
-		.tz-gallery {
-			padding: 40px;
-		}
-
-		/* Override bootstrap column paddings */
-		.tz-gallery .row>div {
-			padding: 2px;
-		}
-
-		.tz-gallery .lightbox img {
-			width: 100%;
-			border-radius: 0;
-			position: relative;
-		}
-
-		/* .tz-gallery .lightbox:before {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			margin-top: -13px;
-			margin-left: -13px;
-			opacity: 0;
-			color: #fff;
-			font-size: 26px;
-			font-family: 'Glyphicons Halflings';
-			content: '\e003';
-			pointer-events: none;
-			z-index: 9000;
-			transition: 0.4s;
-		}
-
-
-		.tz-gallery .lightbox:after {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			opacity: 0;
-			background-color: rgba(46, 132, 206, 0.7);
-			content: '';
-			transition: 0.4s;
-		}
-
-		.tz-gallery .lightbox:hover:after,
-		.tz-gallery .lightbox:hover:before {
-			opacity: 1;
-		} */
-
-		.baguetteBox-button {
-			background-color: transparent !important;
-		}
-
-		@media(max-width: 768px) {
-			body {
-				padding: 0;
+	<script type="text/javascript">
+		window.onscroll = function (ev) {
+			if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+				var home = document.getElementById("nav_home")
+				console.log(nav_home)
+				var contact = document.getElementById("nav_contact")
+				console.log(nav_contact)
+				home.classList.remove("active")
+				contact.classList.add("active")
+				console.log("at end")
 			}
-		}
-s
-	body {
-	    background-color: #434c50;
-	    min-height: 100vh;
-	    font: normal 16px sans-serif;
-	    padding: 0 0;
-	}
-
-	.container.gallery-container {
-	    background-color: #fff;
-	    color: #35373a;
-	    min-height: 100vh;
-	    padding: 30px 50px;
-	}
-
-	.gallery-container h1 {
-	    text-align: center;
-	    margin-top: 50px;
-	    font-family: 'Droid Sans', sans-serif;
-	    font-weight: bold;
-	}
-
-	.gallery-container p.page-description {
-	    text-align: center;
-	    margin: 25px auto;
-	    font-size: 18px;
-	    color: #999;
-	}
-
-	.tz-gallery {
-	    padding: 40px;
-	}
-
-	/* Override bootstrap column paddings */
-	.tz-gallery .row > div {
-	    padding: 2px;
-	}
-
-	.tz-gallery .lightbox img {
-	    width: 100%;
-	    border-radius: 0;
-	    position: relative;
-	}
-
-	.tz-gallery .lightbox:before {
-	    position: absolute;
-	    top: 50%;
-	    left: 50%;
-	    margin-top: -13px;
-	    margin-left: -13px;
-	    opacity: 0;
-	    color: #fff;
-	    font-size: 26px;
-	    font-family: 'Glyphicons Halflings';
-	    content: '\e003';
-	    pointer-events: none;
-	    z-index: 9000;
-	    transition: 0.4s;
-	}
-
-
-	.tz-gallery .lightbox:after {
-	    position: absolute;
-	    top: 0;
-	    left: 0;
-	    width: 100%;
-	    height: 100%;
-	    opacity: 0;
-	    background-color: rgba(46, 132, 206, 0.7);
-	    content: '';
-	    transition: 0.4s;
-	}
-
-	.tz-gallery .lightbox:hover:after,
-	.tz-gallery .lightbox:hover:before {
-	    opacity: 1;
-	}
-	.baguetteBox-button {
-	    background-color: transparent !important;
-	}
-
-	@media(max-width: 768px) {
-	    body {
-	        padding: 0;
-	    }
-	}
-	</style>
-
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
-<script type="text/javascript">
-	window.onscroll = function(ev) {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        var home = document.getElementById("nav_home")
-        console.log(nav_home)
-        var contact = document.getElementById("nav_contact")
-        console.log(nav_contact)
-        home.classList.remove("active")
-        contact.classList.add("active")
-        console.log("at end")
-    }
-    else{
-        var home = document.getElementById("nav_home")
-        console.log(nav_home)
-        var contact = document.getElementById("nav_contact")
-        console.log(nav_contact)
-        home.classList.add("active")
-        contact.classList.remove("active")
-        console.log(" not at end")
-    }
-};
-</script>
+			else {
+				var home = document.getElementById("nav_home")
+				console.log(nav_home)
+				var contact = document.getElementById("nav_contact")
+				console.log(nav_contact)
+				home.classList.add("active")
+				contact.classList.remove("active")
+				console.log(" not at end")
+			}
+		};
+	</script>
 </head>
 
 <body>
@@ -323,8 +224,8 @@ s
 
 				<nav class="classy-navbar justify-content-between" id="conferNav">
 
-					<a class="nav-brand" href="./comingsoon.html"><img src="./img/core-img/esummit.png" alt=""
-							width="280" height="300"></a>
+					<a class="nav-brand" href="index-2.html"><img src="{% static 'home/img/core-img/esummit.png' %}"
+							alt="" class="navlogo"></a>
 
 					<div class="classy-navbar-toggler">
 						<span class="navbarToggler"><span></span><span></span><span></span></span>
@@ -338,57 +239,68 @@ s
 
 						<div class="classynav">
 							<ul id="nav">
-								<li id="nav_home" class="active"><a href="#">Home</a></li>
-								<!--  <li><a href="#">Pages</a>
-  <ul class="dropdown">
-  <li><a href="index.html">- Home</a></li>
-  <li><a href="about.html">- About Us</a></li>
-  <li><a href="speakers.html">- speakers</a></li>
-  <li><a href="schedule.html">- Schedule</a></li>
-  <li><a href="tickets.html">- Tickets</a></li>
-  <li><a href="blog.html">- Blog</a></li>
-  <li><a href="single-blog.html">- Single Blog</a></li>
-  <li><a href="contact.html">- Contact</a></li>
-  <li><a href="#">- Dropdown</a>
-  <ul class="dropdown">
-  <li><a href="#">- Dropdown Item</a></li>
-  <li><a href="#">- Dropdown Item</a></li>
-  <li><a href="#">- Dropdown Item</a></li>
-  <li><a href="#">- Dropdown Item</a></li>
-  </ul>
-  </li>
-  </ul>-->
-
-								<li><a href="#gallery">Gallery</a></li>
-
-								<!-- <li><a href="blog.html">Blog</a></li> -->
-								<li id="nav_contact" ><a href="#contact">Contact</a></li>
+								<li><a href="#home">Home</a></li>
+								<li><a href="#about">About Us</a></li>
+								<!-- <li><a href="#speakers">Speakers</a></li> -->
+								<!-- <li><a href="#schedule">Schedule</a></li> -->
+								<li><a href="#events">Events</a></li>
+								<li><a href="#register">Register</a></li>
+								<li><a href="#faq">FAQs</a></li>
+								<li><a href="#contact">Contact Us</a></li>
 							</ul>
 
-							<a href="https://www.edctiet.com/" target="_blank"
-								class=" confer-btn mt-3 mt-lg-0 ml-3 ml-lg-5">Know More About Us<i
-									class="zmdi zmdi-long-arrow-right"></i></a>
+							<!-- <a href="#" class="btn confer-btn mt-3 mt-lg-0 ml-3 ml-lg-5">Know More About Us<i
+									class="zmdi zmdi-long-arrow-right"></i></a> -->
 						</div>
 
 					</div>
 				</nav>
 			</div>
 		</div>
+		{% if messages %}
+		{% for message in messages %}
+		<ul class="messages"
+			style="background: #FCFF00; width: 100%; margin-top: 20vh ; color: rgb(255,255,255); text-align: center; margin: 0px; padding: 10px;">
+			<h1 style="font-weight: 600; font-size: 25px; margin: 0px;">{{ message }}</h1>
+		</ul>
+		{% endfor %}
+		{% endif %}
 	</header>
 
 
+
+
 	<!-- <section class="welcome-area" id="desktop">
+
 		<div class="welcome-slides owl-carousel">
 
 			<div class="single-welcome-slide bg-img bg-overlay jarallax" style="position: relative;">
-				<video autoplay muted loop id="myVideo" style="width: 100%; position: relative; z-index: 0;">
-					<source src="vid/esummitlrweb.mp4" type="video/mp4">
+				<video playsinline autoplay muted loop id="myVideo" style="width: 100%; position: relative; z-index: 0;">
+					<source src="{%static 'home/esummitlrweb.mp4' %}" type="video/mp4">
 				</video>
 			</div>
 		</div>
 
 		<div class="icon-scroll" id="scrollDown"></div>
 	</section> -->
+
+
+	<!-- <section class="welcome-area" id="mobile">
+		<div class="welcome-slides owl-carousel owl-loaded owl-drag">
+
+			<div class="single-welcome-slide bg-img bg-overlay jarallax"
+				style="background-color: black; position: relative;">
+				<video autoplay muted loop id="myVideo"
+					style="width: 100%; position: relative; margin-top: 13vh; z-index: 0;">
+					<source src="{%static 'home/esummitlrweb.mp4' %}" type="video/mp4">
+				</video>
+			</div>
+		</div>
+
+		<div class="icon-scroll" id="scrollDown"></div>
+	</section> -->
+
+
 	<section class="main-section">
 		<!-- <div class="course-header">
 			  <i class="mode-switch fas fa-moon"></i>
@@ -464,7 +376,6 @@ s
 
 
 
-
 	<footer id="contact" class="footer-area bg-img bg-overlay-2 section-padding-100-0">
 
 		<div class="main-footer-area">
@@ -483,10 +394,15 @@ s
 							</p>
 
 							<div class="social-info">
-								<a target="_blank" href="https://www.linkedin.com/school/entrepreneurship-development-cell-thapar-university/"><i class="zmdi zmdi-linkedin"></i></a>
-								<a target="_blank" href="https://www.instagram.com/edc_tiet/"><i class="zmdi zmdi-instagram"></i></a>
-								<a target="_blank" href="https://www.facebook.com/tuedcell/"><i class="zmdi zmdi-facebook"></i></a>
-								<a target="_blank" href="https://mobile.twitter.com/edctiet"><i class="zmdi zmdi-twitter"></i></a>
+								<a target="_blank"
+									href="https://www.linkedin.com/school/entrepreneurship-development-cell-thapar-university/"><i
+										class="zmdi zmdi-linkedin"></i></a>
+								<a target="_blank" href="https://www.instagram.com/edc_tiet/"><i
+										class="zmdi zmdi-instagram"></i></a>
+								<a target="_blank" href="https://www.facebook.com/tuedcell/"><i
+										class="zmdi zmdi-facebook"></i></a>
+								<a target="_blank" href="https://mobile.twitter.com/edctiet"><i
+										class="zmdi zmdi-twitter"></i></a>
 							</div>
 						</div>
 					</div>
@@ -497,12 +413,16 @@ s
 							<h5 class="widget-title">Contact</h5>
 
 							<div class="footer-contact-info">
-								<p><i class="zmdi zmdi-map"></i> Thapar Institute of Engineering<br> and Technology,
-									Patiala </p>
-								<p><i class="zmdi zmdi-phone"></i> Animesh Bisen: <a style="color: #9293bc;" href="tel:9140470096">+91 914047009</a></p>
-								<p><i class="zmdi zmdi-phone"></i> Anmol Jindal: <a style="color: #9293bc;" href="tel:8264245458">+91 8264245458</a></p>
+								<p><i class="zmdi zmdi-map"></i><a style="color: #9293bc;"
+										href="https://g.page/ThaparInstitute?share" target="_blank"> Thapar Institute of
+										Engineering<br> and Technology,
+										Patiala</a> </p>
+								<p><i class="zmdi zmdi-phone"></i> Nishant Gupta: <a style="color: #9293bc;"
+										href="tel:8859014946">+91 88590 14946</a></p>
+								<p><i class="zmdi zmdi-phone"></i> Prachi Singhroha: <a style="color: #9293bc;"
+										href="tel:7988188907">+91 79881 88907</a></p>
 								<p><i class="zmdi zmdi-email"></i><a href="mailto:tuedcell@gmail.com"
-										style="color: #9293bc">tuedcell@gmail.com</a></p>
+										style="color: #9293bc">esummit@edctiet.com</a></p>
 								<p><i class="zmdi zmdi-globe"></i><a href="https://www.edctiet.com"
 										style="color: #9293bc;">www.edctiet.com/</a>
 								</p>
@@ -539,7 +459,7 @@ s
 								<script>document.write(new Date().getFullYear());</script> All rights reserved | This
 								website is made
 								with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
-									href="https://www.edctiet.com/" target="_blank">Technical Team, EDC-TIET</a>
+									href="https://www.edctiet.com/tech-team/" target="_blank">Technical Team, EDC-TIET</a>
 							</p>
 						</div>
 					</div>
@@ -578,29 +498,29 @@ s
 		countdown();
 	</script>
 
-<script>
-	$('a[onclick]').each(function(){
-	  $(this).data('onclick', this.onclick);
+	<script>
+		$('a[onclick]').each(function () {
+			$(this).data('onclick', this.onclick);
 
-	  this.onclick = function(event) {
-		if($(this).attr('disabled')) { // HERE
-		  return false;
-		};
+			this.onclick = function (event) {
+				if ($(this).attr('disabled')) { // HERE
+					return false;
+				};
 
-		$(this).data('onclick').call(this, event || window.event);
-	  };
-	});
+				$(this).data('onclick').call(this, event || window.event);
+			};
+		});
 	</script>
 
-	<script src="js/jquery.min.js"></script>
+	<script src="{%static 'home/js/jquery.min.js' %}"></script>
 
-	<script src="js/popper.min.js"></script>
+	<script src="{%static 'home/js/popper.min.js' %}"></script>
 
-	<script src="js/bootstrap.min.js"></script>
+	<script src="{%static 'home/js/bootstrap.min.js' %}"></script>
 
-	<script src="js/confer.bundle.js"></script>
+	<script src="{%static 'home/js/confer.bundle.js' %}"></script>
 
-	<script src="js/default-assets/active.js"></script>
+	<script src="{%static 'home/js/default-assets/active.js' %}"></script>
 
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 	<script>
@@ -609,6 +529,42 @@ s
 		gtag('js', new Date());
 
 		gtag('config', 'UA-23581568-13');
+	</script>
+
+	<script>
+		function countdown() {
+			var now = new Date();
+			var over_time = new Date("April 25, 2021 12:00:01");
+
+			var now_time = now.getTime();
+			var over = over_time.getTime();
+			var end_time = over - now_time;
+
+			var days = Math.floor(end_time / (1000 * 60 * 60 * 24));
+			var hours = Math.floor((end_time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes = Math.floor((end_time % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((end_time % (1000 * 60)) / 1000);
+			if (hours < "10") {
+				hours = "0" + hours;
+			}
+			if (minutes < "10") {
+				minutes = "0" + minutes;
+			}
+			if (seconds < "10") {
+				seconds = "0" + seconds;
+			}
+
+			console.log(days)
+
+			document.getElementById("day").innerHTML = days;
+			document.getElementById("hour").innerHTML = hours;
+			document.getElementById("minute").innerHTML = minutes;
+			document.getElementById("second").innerHTML = seconds;
+
+			setTimeout(countdown, 1000);
+
+		}
+		countdown();
 	</script>
 </body>
 

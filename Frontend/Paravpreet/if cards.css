@@ -220,11 +220,11 @@ section {
   color: var(--js-color);
 }
 
- /* .progress {
-   display: flex; 
+/* .progress {
+  display: flex;
    flex-direction: column; 
   align-items: flex-end; 
-}  */
+} */
 
 /* .progress-bar {
   border-radius: 8px;

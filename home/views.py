@@ -56,7 +56,7 @@ def Internships(request, pg=1):
 def InternshipApplicationView(request, pk):
     pg = 1
     internship = Internship.objects.filter(id=pk).first()
-    applied_by = InternshipApplication.objects.filter(applied_by=request.user.student_profile)
+    applied_by = InternshipApplication.objects.filter(applied_by=request.user.User)
     date = datetime.date.today()
     for applicant in applied_by:
         if(internship == applicant.internship):
@@ -72,14 +72,14 @@ def InternshipApplicationView(request, pk):
     
     if form.is_valid():
         form.instance.internship = Internship.objects.filter(id = pk).first()
-        form.instance.applied_by = request.user.student_profile
+        form.instance.applied_by = request.user.User
         form.save()
         return redirect('internship-detail', pk)
 
     context = {
         'form': form
     }
-    return render(request, 'internshipPortal/application.html', context)
+    return render(request, 'home/application.html', context)
 
 
 
@@ -89,7 +89,7 @@ def InternshipDetailView(request, pk):
 
     internship = Internship.objects.filter(id=pk).first()
     if(request.user.is_authenticated):
-        applied_by = InternshipApplication.objects.filter(applied_by=request.user.student_profile)
+        applied_by = InternshipApplication.objects.filter(applied_by=request.user.User)
         for applicant in applied_by:
             if(internship == applicant.internship):
                 applied = True
@@ -99,7 +99,7 @@ def InternshipDetailView(request, pk):
         'applied' : applied,
     }
 
-    return render(request, 'internshipPortal/internship_detail.html', context)
+    return render(request, 'home/internship_detail.html', context)
 
 
 

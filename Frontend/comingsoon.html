@@ -9,6 +9,41 @@
 
 	<title>E-Summit 2021</title>
 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
+	<link rel="stylesheet" href="{% static 'home/if cards.css' %}">
+	<link rel="stylesheet" href="{% static 'home/classy.css' %}">
+	<link rel="stylesheet" href="{% static 'home/style1.css' %}">
+	<style>
+		.card-image {
+		object-fit: contain;
+		max-width: 100%;
+		height: 100px;
+		border-radius: 8px;
+		}
+
+		.gmeet-btn {
+		padding: 10px 18px;
+		margin: 10px 0px;
+		color: #fff;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-size: 18px;
+		letter-spacing: 2px;
+		border-radius: 40px;
+		background: linear-gradient(90deg, #0162c8, #55e7fc);
+		text-align: right;
+		
+		}
+
+		h5 {
+		text-align: center;
+		}
+	</style>
+
 
 	<link rel="icon" href="./img/favicon.ico">
 
@@ -342,174 +377,93 @@ s
 	</header>
 
 
-	<section class="welcome-area" id="desktop">
+	<!-- <section class="welcome-area" id="desktop">
 		<div class="welcome-slides owl-carousel">
 
 			<div class="single-welcome-slide bg-img bg-overlay jarallax" style="position: relative;">
 				<video autoplay muted loop id="myVideo" style="width: 100%; position: relative; z-index: 0;">
 					<source src="vid/esummitlrweb.mp4" type="video/mp4">
 				</video>
-				<!-- <div class="container h-100" style="position: absolute; top: 10%; right: 10%; z-index: 99;">
-					<div class="row h-100 align-items-center">
-						<div class="col-12">
-							<div class="welcome-text text-right">
-								<h2 data-animation="fadeInUp" data-delay="300ms">E-SUMMIT <br>2021</h2>
-
-
-								<div class="input-group" style="position: absolute; right: 0px;">
-									<input type="text" name="email" value="" required="required" placeholder="Email" />
-									<label for="text-1542372332072" style="margin-bottom: 0;">Email</label>
-
-								</div>
-								<br><br><br><br>
-								<div class="hero-btn-group" data-animation="fadeInUp" data-delay="700ms">
-									<a href="#" class=" confer-btn">Subscribe Now <i
-											class="zmdi zmdi-long-arrow-right"></i></a>
-								</div> 
-							</div>
-						</div>
-					</div>
-				</div> -->
 			</div>
 		</div>
 
 		<div class="icon-scroll" id="scrollDown"></div>
-	</section>
-
-
-
-	<section class="welcome-area" id="mobile">
-		<div class="welcome-slides owl-carousel owl-loaded owl-drag">
-
-			<div class="single-welcome-slide bg-img bg-overlay jarallax"
-				style="background-color: black; position: relative;">
-				<video autoplay muted loop id="myVideo" style="width: 100%; position: relative; margin-top: 13vh; z-index: 0;">
-					<source src="vid/esummitlrweb.mp4" type="video/mp4">
-				</video>
+	</section> -->
+	<section class="main-section">
+		<!-- <div class="course-header">
+			  <i class="mode-switch fas fa-moon"></i>
+			</div> -->
+			<br><br><br>
+		<div class="courses">
+		  <div class="course html" tabindex="1">
+			<div class="course-info">
+			  <!-- <span>Course</span> -->
+			  <img src="EDC.png" class="card-image" alt="">
+			  <h5>Entrepreneurship Development Cell</h5>
+			  <!-- <a href="#" tabindex="2">Chapters <i class="fas fa-chevron-right"></i></a> -->
 			</div>
-		</div>
-
-		<div class="icon-scroll" id="scrollDown"></div>
-	</section>
-
-
-	<section class="about-us-countdown-area section-padding-100-0" id="about">
-
-
-
-		<div class="countdown-up-area">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-12 col-md-3">
-
-						<div class="countdown-content-text mb-100 wow fadeInUp" data-wow-delay="300ms">
-							<h6>Summit Date</h6>
-							<h4>Count Every Second Until the Event</h4>
-						</div>
-					</div>
-					<div class="col-12 col-md-9">
-						<div class="countdown-timer mb-100 wow fadeInUp" data-wow-delay="300ms">
-							<div id="clockdiv2">
-								<div><span id="day"></span><span>Days</span></div>
-								<div><span id="hour"></span><span>Hours</span></div>
-								<div><span id="minute"></span><span>Minutes</span></div>
-								<div><span id="second"></span><span>Seconds</span></div>
-							</div>
-						</div>
-					</div>
-				</div>
+			<!-- <div class="course-more">
+			  <div class="details"> -->
+			<!-- <h5>Chapter 14</h5> -->
+			<div class="progress">
+			  <!-- <span class="progress-bar p-20"></span>
+				  <span class="progress-text">2/10 Lessons Completed</span> -->
+			  <!-- </div>
+			  </div> -->
+			  <a class="gmeet-btn" href="#">More Info</a>
+			  <a class="gmeet-btn" href="#">Google Meet</a>
+			  <!-- <a class="chapters" href="#" tabindex="3">Chapters <i class="fas fa-chevron-right"></i></a>
+			  <a class="continue-btn html" tabindex="4" href="#">Continue</a> -->
 			</div>
-		</div>
-
-		<div class="container">
-			<div class="row align-items-center">
-
-				<div class="col-12 col-md-6">
-					<div class="about-content-text mb-80">
-						<h6 class="wow fadeInUp" data-wow-delay="300ms">About</h6>
-						<h3 class="wow fadeInUp" data-wow-delay="300ms">E-SUMMIT 2021</h3>
-						<p class="wow fadeInUp" data-wow-delay="300ms">Big things and opportunities come once in a
-							while.<br><br>
-
-							All the future Zuckerberg's gear up for the biggest entrepreneurial event of the year.
-							Click on the button below to receive regular information and not miss any opportunity</p>
-						<br>
-						<div class="input-group">
-							<input type="text" name="email" value="" required="required" placeholder="Email" />
-							<label for="text-1542372332072" style="margin-bottom: 0;">Email</label>
-							<!-- <div class="req-mark">!</div> -->
-						</div>
-
-						<a href="#" class=" confer-btn mt-50 wow fadeInUp" data-wow-delay="300ms" style="margin-top: 0;">Subscribe Now <i
-								class="zmdi zmdi-long-arrow-right"></i></a>
-					</div>
-				</div>
-				<div class="col-12 col-md-6">
-					<div class="about-thumb mb-80 wow fadeInUp" data-wow-delay="300ms">
-						<img src="./img/esummit.png" alt="">
-					</div>
-				</div>
+		  </div>
+		  <!-- <div class="course css" tabindex="5">
+			<div class="course-info">
+			  <span>Course</span>
+			  <h5>Basic CSS</h5>
+			  <a href="#" tabindex="6">Chapters <i class="fas fa-chevron-right"></i></a>
 			</div>
+			<div class="course-more">
+			  <div class="details">
+				<h5>Chapter 4</h5>
+				<div class="progress">
+				  <span class="progress-bar p-90"></span>
+				  <span class="progress-text">9/10 Lessons Completed</span>
+				</div>
+			  </div> -->
+			  <!-- <h2 class="name">Adjacent Selectors</h2>
+			  <a class="chapters" href="#" tabindex="7">Chapters <i class="fas fa-chevron-right"></i></a>
+			  <a class="continue-btn css" tabindex="8" href="#">Continue</a> -->
+			</div>
+		  </div>
+		  <!-- <div class="course js" tabindex="9">
+			 <div class="course-info">
+			  <span>Course</span>
+			  <h5>Basic ES6</h5>
+			  <a href="#">Chapters <i class="fas fa-chevron-right"></i></a>
+			</div>
+			<div class="course-more">
+			  <div class="details">
+				<h5>Chapter 9</h5>
+				<div class="progress">
+				  <span class="progress-bar p-40"></span>
+				  <span class="progress-text">4/10 Lessons Completed</span>
+				</div>
+			  </div>
+			  <h2 class="name">Getters and Setters</h2>
+			  <a class="chapters" href="#" tabindex="10">Chapters <i class="fas fa-chevron-right"></i></a>
+			  <a class="continue-btn js" tabindex="11" href="#">Continue</a>
+			</div> -->
+		  </div>
+		</div> 
 		</div>
 	</section>
+	<div class="overlay">
+		<p class="overlay-message"></p>
+	</div>
+	<script src="{% static 'home/if cars.js' %}"></script>
 
 
 
-	<section id="gallery">
-		<div class="container-fluid gallery-container our-speaker-area bg-img bg-gradient-overlay section-padding-100-60"
-			style="background-image: url(img/bg-img/3.jpg);">
-			<div class="container">
-				<div class="row">
-					<div class="col-12">
-						<div class="section-heading text-center wow fadeInUp" data-wow-delay="300ms">
-							<p>Gallery</p>
-							<h4>E-Summit 2020</h4>
-						</div>
-					</div>
-				</div>
-				<div class="tz-gallery">
-					<div class="row">
-
-						<div class="col-sm-12 col-md-4">
-							<a class="lightbox" href="./img/gallery/1.jpg">
-								<img src="./img/gallery/1.jpg" alt="Bridge" style="width: 100%;">
-							</a>
-						</div>
-						<div class="col-sm-6 col-md-4">
-							<a class="lightbox" href="./img/gallery/2.jpg">
-								<img src="./img/gallery/2.jpg" alt="Park" style="height:  100%;">
-							</a>
-						</div>
-						<div class="col-sm-6 col-md-4">
-							<a class="lightbox" href="./img/gallery/3.jpg">
-								<img src="./img/gallery/3.jpg" alt="Tunnel" style="height:  100%;">
-							</a>
-						</div>
-						<div class="col-sm-12 col-md-8">
-							<a class="lightbox" href="./img/gallery/10.PNG">
-								<img src="./img/gallery/10.PNG" alt="Traffic" style="height:  100%;">
-							</a>
-						</div>
-						<div class="col-sm-6 col-md-4">
-							<a class="lightbox" href="./img/gallery/5.jpg">
-								<img src="./img/gallery/5.jpg" alt="Coast" style="height:  100%; width: 100%;">
-							</a>
-						</div>
-						<div class="col-12 text-center mt-50">
-							<div class="hero-btn-group" data-animation="fadeInUp" data-delay="700ms">
-								<a href="gallery.html" class="confer-btn" style="text-decoration: none; font-weight: bold;">View All <i
-										class="zmdi zmdi-long-arrow-right"></i></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
-<script>
-    baguetteBox.run('.tz-gallery');
-</script>
 
 	<footer id="contact" class="footer-area bg-img bg-overlay-2 section-padding-100-0">
 

@@ -1,0 +1,689 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>E-Summit 2021</title>
+
+	<!-- <link rel="stylesheet" href="{% static 'home/if/if cards.css' %}">
+	<link rel="stylesheet" href="{% static 'home/if/classy.css' %}">
+	<link rel="stylesheet" href="{% static 'home/if/style.css' %}"> -->
+
+	<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+
+	<link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
+
+	<link rel="icon" href="{%static 'home/img/favicon.ico' %}">
+
+	<link rel="stylesheet" href="{%static 'home/style.css' %}">
+
+	<style>
+		.card-image {
+		  object-fit: contain;
+		  max-width: 100%;
+		  height: 100px;
+		  border-radius: 8px;
+		}
+	
+		.gmeet-btn {
+		  padding: 10px 18px;
+		  margin: 10px 0px;
+		  color: #fff;
+		  text-decoration: none;
+		  text-transform: uppercase;
+		  font-size: 18px;
+		  letter-spacing: 2px;
+		  border-radius: 40px;
+		  background: linear-gradient(90deg, #0162c8, #55e7fc);
+		  text-align: right;
+		  
+		}
+	
+		h5 {
+		  text-align: center;
+		}
+	</style>
+
+	<style>
+		@media only screen and (min-width: 768px) {
+
+			#desktop {
+				display: block;
+			}
+
+			#mobile {
+				display: none;
+			}
+		}
+
+		/* @media only screen and (max-width: 768px) {
+
+			#logo {
+				width: 350px;
+				height: 100px;
+			}
+		} */
+
+		@media only screen and (max-width: 768px) {
+
+			#desktop {
+				display: none;
+			}
+
+			#mobile {
+				display: block;
+			}
+
+			.input-group input {
+				position: absolute;
+				border: 0;
+				box-shadow: none;
+				background-color: rgba(255, 255, 255, 0);
+				top: 0;
+				height: 60px;
+				width: 100%;
+				padding: 0 43px;
+				box-sizing: border-box;
+				z-index: 3;
+				display: block;
+				color: #1a6fc4;
+				font-size: 15px;
+				font-family: "Poppins", sans-serif;
+				transition: top 0.1s ease-in-out;
+			}
+
+			.input-group label {
+				position: absolute;
+				border: 0;
+				top: 5px;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				z-index: 2;
+				display: flex;
+				align-items: center;
+				padding: 0 53px;
+				box-sizing: border-box;
+				transition: all 0.1s ease-in-out;
+				cursor: text;
+			}
+		}
+
+		.faq-section {
+			background-color: #090A0F;
+			background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%) !important;
+			min-height: 100vh;
+			padding: 10vh 0 0;
+		}
+
+		.faq-title h2 {
+			position: relative;
+			margin-bottom: 45px;
+			display: inline-block;
+			font-weight: 600;
+			line-height: 1;
+		}
+
+		.faq-title h2::before {
+			content: "";
+			position: absolute;
+			left: 50%;
+			width: 60px;
+			height: 2px;
+			background: #E91E63;
+			bottom: -25px;
+			margin-left: -30px;
+		}
+
+		.faq-title p {
+			padding: 0 190px;
+			margin-bottom: 10px;
+		}
+
+		.faq {
+
+			background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+			box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.06);
+			border-radius: 4px;
+		}
+
+		.faq .card {
+			border: none;
+			background: none;
+			border-bottom: 1px dashed #CEE1F8;
+		}
+
+		.faq .card .card-header {
+			padding: 0px;
+			border: none;
+			background: none;
+			-webkit-transition: all 0.3s ease 0s;
+			-moz-transition: all 0.3s ease 0s;
+			-o-transition: all 0.3s ease 0s;
+			transition: all 0.3s ease 0s;
+		}
+
+		.faq .card .card-header:hover {
+			background: rgba(233, 220, 30, 0.1);
+			padding-left: 10px;
+		}
+
+		.faq .card .card-header .faq-title {
+			width: 100%;
+			text-align: left;
+			padding: 0px;
+			padding-left: 30px;
+			padding-right: 30px;
+			font-weight: 400;
+			font-size: 15px;
+			letter-spacing: 1px;
+			color: white;
+			text-decoration: none !important;
+			-webkit-transition: all 0.3s ease 0s;
+			-moz-transition: all 0.3s ease 0s;
+			-o-transition: all 0.3s ease 0s;
+			transition: all 0.3s ease 0s;
+			cursor: pointer;
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+
+		.faq .card .card-header .faq-title .badge {
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			line-height: 14px;
+			float: left;
+			-webkit-border-radius: 100px;
+			-moz-border-radius: 100px;
+			border-radius: 100px;
+			text-align: center;
+			background: #FCFF00;
+			color: black;
+			font-size: 12px;
+			margin-right: 20px;
+		}
+
+		.faq .card .card-body {
+			padding: 30px;
+			padding-left: 35px;
+			padding-bottom: 16px;
+			font-weight: 400;
+			font-size: 16px;
+			color: #6F8BA4;
+			line-height: 28px;
+			letter-spacing: 1px;
+			border-top: 1px solid #F3F8FF;
+		}
+
+		.faq .card .card-body p {
+			margin-bottom: 14px;
+		}
+
+		@media (max-width: 991px) {
+			.faq {
+				margin-bottom: 30px;
+			}
+
+			.faq .card .card-header .faq-title {
+				line-height: 26px;
+				margin-top: 10px;
+			}
+
+			.welcome-area .icon-scroll {
+				display: none;
+			}
+		}
+	</style>
+
+	<style type="text/css">
+		body {
+			background-color: #434c50;
+			min-height: 100vh;
+			font: normal 16px sans-serif;
+			padding: 0 0;
+		}
+
+		.container.gallery-container {
+			background-color: #fff;
+			color: #35373a;
+			min-height: 100vh;
+			padding: 30px 50px;
+		}
+
+		.gallery-container h1 {
+			text-align: center;
+			margin-top: 50px;
+			font-family: 'Droid Sans', sans-serif;
+			font-weight: bold;
+		}
+
+		.gallery-container p.page-description {
+			text-align: center;
+			margin: 25px auto;
+			font-size: 18px;
+			color: #999;
+		}
+
+		.tz-gallery {
+			padding: 40px;
+		}
+
+		/* Override bootstrap column paddings */
+		.tz-gallery .row>div {
+			padding: 2px;
+		}
+
+		.tz-gallery .lightbox img {
+			width: 100%;
+			border-radius: 0;
+			position: relative;
+		}
+
+		/* .tz-gallery .lightbox:before {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -13px;
+			margin-left: -13px;
+			opacity: 0;
+			color: #fff;
+			font-size: 26px;
+			font-family: 'Glyphicons Halflings';
+			content: '\e003';
+			pointer-events: none;
+			z-index: 9000;
+			transition: 0.4s;
+		}
+
+
+		.tz-gallery .lightbox:after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			background-color: rgba(46, 132, 206, 0.7);
+			content: '';
+			transition: 0.4s;
+		}
+
+		.tz-gallery .lightbox:hover:after,
+		.tz-gallery .lightbox:hover:before {
+			opacity: 1;
+		} */
+
+		.baguetteBox-button {
+			background-color: transparent !important;
+		}
+
+		@media(max-width: 768px) {
+			body {
+				padding: 0;
+			}
+		}
+
+		body {
+			background-color: #434c50;
+			min-height: 100vh;
+			font: normal 16px sans-serif;
+			padding: 0 0;
+		}
+
+		.container.gallery-container {
+			background-color: #fff;
+			color: #35373a;
+			min-height: 100vh;
+			padding: 30px 50px;
+		}
+
+		.gallery-container h1 {
+			text-align: center;
+			margin-top: 50px;
+			font-family: 'Droid Sans', sans-serif;
+			font-weight: bold;
+		}
+
+		.gallery-container p.page-description {
+			text-align: center;
+			margin: 25px auto;
+			font-size: 18px;
+			color: #999;
+		}
+
+		.tz-gallery {
+			padding: 40px;
+		}
+
+		/* Override bootstrap column paddings */
+		.tz-gallery .row>div {
+			padding: 2px;
+		}
+
+		.tz-gallery .lightbox img {
+			width: 100%;
+			border-radius: 0;
+			position: relative;
+		}
+
+		.tz-gallery .lightbox:before {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -13px;
+			margin-left: -13px;
+			opacity: 0;
+			color: #fff;
+			font-size: 26px;
+			font-family: 'Glyphicons Halflings';
+			/* content: '\e003'; */
+			pointer-events: none;
+			z-index: 9000;
+			transition: 0.4s;
+		}
+
+
+		.tz-gallery .lightbox:after {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			background-color: rgba(255, 255, 0, 0.5);
+			content: '';
+			transition: 0.4s;
+		}
+
+		.tz-gallery .lightbox:hover:after,
+		.tz-gallery .lightbox:hover:before {
+			opacity: 1;
+		}
+
+		.baguetteBox-button {
+			background-color: transparent !important;
+		}
+
+		.navlogo {
+			width: 200px;
+			height: 150px;
+		}
+
+		@media(max-width: 768px) {
+
+			#space {
+				margin-bottom: 0px !important;
+			}
+
+			body {
+				padding: 0;
+			}
+
+			.navlogo {
+				width: 260px;
+				height: 140px;
+			}
+
+			.welcome-area .icon-scroll {
+				display: none;
+			}
+
+			.mkkh {
+				margin-bottom: 0;
+			}
+
+			.input-group input {
+				position: absolute;
+				border: 0;
+				box-shadow: none;
+				background-color: rgba(255, 255, 255, 0);
+				top: 0;
+				height: 60px;
+				width: 100%;
+				padding: 0 43px;
+				box-sizing: border-box;
+				z-index: 3;
+				display: block;
+				color: #1a6fc4;
+				font-size: 15px;
+				font-family: "Poppins", sans-serif;
+				transition: top 0.1s ease-in-out;
+			}
+
+			.input-group label {
+				position: absolute;
+				border: 0;
+				top: 5px;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				z-index: 2;
+				display: flex;
+				align-items: center;
+				padding: 0 53px;
+				box-sizing: border-box;
+				transition: all 0.1s ease-in-out;
+				cursor: text;
+			}
+		}
+	</style>
+
+	
+
+	<script type="text/javascript">
+		window.onscroll = function (ev) {
+			if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+				var home = document.getElementById("nav_home")
+				console.log(nav_home)
+				var contact = document.getElementById("nav_contact")
+				console.log(nav_contact)
+				home.classList.remove("active")
+				contact.classList.add("active")
+				console.log("at end")
+			}
+			else {
+				var home = document.getElementById("nav_home")
+				console.log(nav_home)
+				var contact = document.getElementById("nav_contact")
+				console.log(nav_contact)
+				home.classList.add("active")
+				contact.classList.remove("active")
+				console.log(" not at end")
+			}
+		};
+	</script>
+    {% block head %}{% endblock head %}
+</head>
+
+<body {% block bodytag %}{% endblock bodytag %}>
+
+	<div id="preloader">
+		<div class="loader"></div>
+	</div>
+
+
+	<header class="header-area">
+		<div class="classy-nav-container breakpoint-off">
+			<div class="container">
+
+				<nav class="classy-navbar justify-content-between" id="conferNav">
+
+					<a class="nav-brand" href="index-2.html"><img src="{% static 'home/img/core-img/esummit.png' %}"
+							alt="" class="navlogo"></a>
+
+					<div class="classy-navbar-toggler">
+						<span class="navbarToggler"><span></span><span></span><span></span></span>
+					</div>
+
+					<div class="classy-menu">
+
+						<div class="classycloseIcon">
+							<div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+						</div>
+
+						<div class="classynav">
+							<ul id="nav">
+								<li><a href="#home">Home</a></li>
+								<li><a href="#about">About Us</a></li>
+								<!-- <li><a href="#speakers">Speakers</a></li> -->
+								<!-- <li><a href="#schedule">Schedule</a></li> -->
+								<li><a href="#events">Events</a></li>
+								<li><a href="#register">Register</a></li>
+								<li><a href="#faq">FAQs</a></li>
+								<li><a href="#contact">Contact Us</a></li>
+							</ul>
+
+							<!-- <a href="#" class="btn confer-btn mt-3 mt-lg-0 ml-3 ml-lg-5">Know More About Us<i
+									class="zmdi zmdi-long-arrow-right"></i></a> -->
+						</div>
+
+					</div>
+				</nav>
+			</div>
+		</div>
+	</header>
+
+
+    {% block body %}{% endblock body %}
+
+    <footer id="contact" class="footer-area bg-img bg-overlay-2 section-padding-100-0">
+
+		<div class="main-footer-area">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-12 col-sm-6 col-lg-6">
+						<div class="single-footer-widget mb-60 wow fadeInUp" data-wow-delay="300ms">
+
+							<!-- <a href="#" class="footer-logo"><img src="img/core-img/logo.png" alt=""></a> -->
+							<h5 class="widget-title">About Us</h5>
+							<p> EDC, TIET has been established with an aim to foster and nurture talented young minds
+								with a vision. We believe that entrepreneurship is the key to unlock India's talent and
+								untapped potential and thus we are striving to create, foster and promote
+								entrepreneurship.
+							</p>
+
+							<div class="social-info">
+								<a target="_blank"
+									href="https://www.linkedin.com/school/entrepreneurship-development-cell-thapar-university/"><i
+										class="zmdi zmdi-linkedin"></i></a>
+								<a target="_blank" href="https://www.instagram.com/edc_tiet/"><i
+										class="zmdi zmdi-instagram"></i></a>
+								<a target="_blank" href="https://www.facebook.com/tuedcell/"><i
+										class="zmdi zmdi-facebook"></i></a>
+								<a target="_blank" href="https://mobile.twitter.com/edctiet"><i
+										class="zmdi zmdi-twitter"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 col-sm-6 col-lg-4">
+						<div class="single-footer-widget mb-60 wow fadeInUp" data-wow-delay="300ms">
+
+							<h5 class="widget-title">Contact</h5>
+
+							<div class="footer-contact-info">
+								<p><i class="zmdi zmdi-map"></i><a style="color: #9293bc;"
+										href="https://g.page/ThaparInstitute?share" target="_blank"> Thapar Institute of
+										Engineering<br> and Technology,
+										Patiala</a> </p>
+								<p><i class="zmdi zmdi-phone"></i> Nishant Gupta: <a style="color: #9293bc;"
+										href="tel:8859014946">+91 88590 14946</a></p>
+								<p><i class="zmdi zmdi-phone"></i> Prachi Singhroha: <a style="color: #9293bc;"
+										href="tel:7988188907">+91 79881 88907</a></p>
+								<p><i class="zmdi zmdi-email"></i><a href="mailto:tuedcell@gmail.com"
+										style="color: #9293bc">esummit@edctiet.com</a></p>
+								<p><i class="zmdi zmdi-globe"></i><a href="https://www.edctiet.com"
+										style="color: #9293bc;">www.edctiet.com/</a>
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-12 col-sm-6 col-lg-2">
+						<div class="single-footer-widget mb-60 wow fadeInUp" data-wow-delay="300ms">
+
+							<h5 class="widget-title">Events</h5>
+
+							<ul class="footer-nav">
+								<li><a href="#">UNWIND</a></li>
+								<li><a href="#">ELEVATE</a></li>
+								<li><a href="#">INTERNSHIP FAIR</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="copywrite-content">
+				<div class="row">
+
+					<div class="col-12 col-md-12">
+						<div class="copywrite-text">
+							<p>
+								Copyright &copy;
+								<script data-cfasync="false"
+									src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+								<script>document.write(new Date().getFullYear());</script> All rights reserved | This
+								website is made
+								with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
+									href="https://www.edctiet.com/tech-team/" target="_blank">Technical Team, EDC-TIET</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	
+
+	<script>
+		$('a[onclick]').each(function () {
+			$(this).data('onclick', this.onclick);
+
+			this.onclick = function (event) {
+				if ($(this).attr('disabled')) { // HERE
+					return false;
+				};
+
+				$(this).data('onclick').call(this, event || window.event);
+			};
+		});
+	</script>
+
+	<script src="{%static 'home/js/jquery.min.js' %}"></script>
+
+	<script src="{%static 'home/js/popper.min.js' %}"></script>
+
+	<script src="{%static 'home/js/bootstrap.min.js' %}"></script>
+
+	<script src="{%static 'home/js/confer.bundle.js' %}"></script>
+
+	<script src="{%static 'home/js/default-assets/active.js' %}"></script>
+
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+
+		gtag('config', 'UA-23581568-13');
+	</script>
+
+	
+</body>
+
+</html>
+
+

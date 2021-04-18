@@ -7,6 +7,8 @@ from phonenumber_field.modelfields import PhoneNumberField
 
 class Internship(models.Model):
     company_name = models.CharField(max_length=100, default='')
+    company_logo = models.ImageField(default='logo/download.png', upload_to='logo/')
+    start_by = models.DateField(default='2000-01-01', help_text='YYYY-MM-DD Format should be followed for the date.')
     field_of_internship = models.CharField(max_length=100, default='')
     duration = models.CharField(max_length=20)
     about = models.TextField()

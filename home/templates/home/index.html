@@ -60,60 +60,32 @@
 				<div class="col-12">
 					
 				</div>
-				<div class="col-12 col-md-6 col-lg-4">
-					<div class="single-blog-area wow fadeInUp" data-wow-delay="300ms">
-						<div class="single-blog-thumb">
-							<img src="img/bg-img/18.jpg" alt="">
-						</div>
-						<div class="single-blog-text text-center">
-							<img style="height: 15em; width: 15em;" src="{% static 'home/EDC.png' %}">
-							<a class="blog-title" href="#">Street Food Convention</a><br>
-								<!-- <div class="post-meta">
-									<a class="post-date" href="#"><i class="zmdi zmdi-alarm-check"></i> January 14, 2019</a>
-									<a class="post-author" href="#"><i class="zmdi zmdi-account"></i> Laura Green</a>
+				{% for internship in internships %}
+					<div class="col-12 col-md-6 col-lg-4">
+						<div class="single-blog-area wow fadeInUp" data-wow-delay="300ms">
+							<div class="single-blog-thumb">
+								<img src="img/bg-img/18.jpg" alt="">
+							</div>
+							<div class="single-blog-text text-center">
+								<img style="height: 15em; width: 15em;" src="{{ internship.company_logo.url }}">
+								<a class="blog-title" style="padding-bottom: 10px;" href="#">{{ internship.company_name }}</a>
+							
+									<!-- <div class="post-meta">
+										<a class="post-date" href="#"><i class="zmdi zmdi-alarm-check"></i> January 14, 2019</a>
+										<a class="post-author" href="#"><i class="zmdi zmdi-account"></i> Laura Green</a>
+									</div>
+								<p>Street Food Convention will showcase products like Packed food, beef and lamb, street food.</p> -->
+							{% if user.is_authenticated %}
+								<div>
+									<a class="btn btn-info btn-sm btn-collapsible" href="{% url 'internship-detail' internship.id %}"> <span>View More</span></a>
+									<a class="btn btn-info btn-sm btn-collapsible" href="#"><span>Join Google Meet</span></a>
 								</div>
-							<p>Street Food Convention will showcase products like Packed food, beef and lamb, street food.</p> -->
-							<a class="btn btn-info btn-sm btn-collapsible"><i class="fa fa-cloud-download"></i> <span>Download</span></a>
-							<a class="btn btn-info btn-sm btn-collapsible"><i class="fa fa-cloud-download"></i> <span>Download</span></a>
-						</div>
-						
-					</div>
-				</div>
-				<div class="col-12 col-md-6 col-lg-4">
-					<div class="single-blog-area wow fadeInUp" data-wow-delay="300ms">
-						<div class="single-blog-thumb">
-							<img src="img/bg-img/19.jpg" alt="">
-						</div>
-						<div class="single-blog-text text-center">
-							<a class="blog-title" href="#">Tedx Moscow Conference</a>
-								<div class="post-meta">
-									<a class="post-date" href="#"><i class="zmdi zmdi-alarm-check"></i>January 14, 2019</a>
-									<a class="post-author" href="#"><i class="zmdi zmdi-account"></i>Laura Green</a>
-								</div>
-							<p>Street Food Convention will showcase products like Packed food, beef and lamb, street food.</p>
-						</div>
-						<div class="blog-btn">
-							<a href="#"><i class="zmdi zmdi-long-arrow-right"></i></a>
+							{% endif %}
+							</div>
+							
 						</div>
 					</div>
-				</div>
-		
-				<div class="col-12 col-md-6 col-lg-4">
-					<div class="single-blog-area wow fadeInUp" data-wow-delay="300ms">
-						<div class="single-blog-thumb">
-							<img src="img/bg-img/20.jpg" alt="">
-						</div>
-						<div class="single-blog-text text-center">
-							<a class="blog-title" href="#">Los Angeles Institute</a>
-								<div class="post-meta">
-									<a class="post-date" href="#"><i class="zmdi zmdi-alarm-check"></i>January 14, 2019</a>
-									<a class="post-author" href="#"><i class="zmdi zmdi-account"></i>Laura Green</a>
-								</div>
-							<p>Street Food Convention will showcase products like Packed food, beef and lamb, street food.</p>
-						</div>
-						
-					</div>
-				</div>
+				{% endfor %}
 			</div>
 		</div>
 	</section>

@@ -6,6 +6,9 @@ class InternshipForm(forms.ModelForm):
     class Meta:
         model = Internship
         fields = [
+            'company_name',
+            'company_logo',
+            'start_by',
             'field_of_internship',
             'duration',
             'about',

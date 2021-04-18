@@ -20,8 +20,13 @@ class InternshipForm(forms.ModelForm):
 
 
 class ApplicationForm(forms.ModelForm):
+    domain = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+    )
+
     class Meta:
         model = InternshipApplication
         fields = [
-            
+            'domain',
         ]

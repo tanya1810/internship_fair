@@ -12,7 +12,7 @@
 
 <section class="login bg-gradient-overlay" style="padding-top: 130px;">
     <div class="container">
-      <h3 class="title" style="color: white;">Application</h3>
+      <h3 class="title" style="color: white;">Application for {{internship.company_name}}</h3>
 
 
 
@@ -23,11 +23,13 @@
         <div class="form-group">
             
         </div>
-        
+        {{internship.domain_set}}
+        {% for x in field %}
         <div class="form-group">
-            <label for="id_domain">Domain:</label>
-            <input type="checkbox" name="domain" id="id_domain" checked="">          
+            <label for="id_domain">{{x}}</label>
+            <input type="checkbox" name="" id="id_domain" checked="">          
         </div>
+        {% endfor %}
 
         <div class="form-group">
             <label for="id_resume">Resume:</label>

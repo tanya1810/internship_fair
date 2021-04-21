@@ -19,6 +19,7 @@ class InternshipForm(forms.ModelForm):
             'perks',
             'who_should_apply',
             'apply_by',
+            'meet_link',
         ]
 
 

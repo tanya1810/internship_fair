@@ -56,6 +56,7 @@ def MyInternships(request):
 def InternshipApplicationView(request, pk):
     pg = 1
     internship = Internship.objects.filter(id=pk).first()
+    # domain = Internship.domain.objects.all()
     applied_by = InternshipApplication.objects.filter(applied_by=request.user)
     date = datetime.date.today()
     for applicant in applied_by:
@@ -71,7 +72,7 @@ def InternshipApplicationView(request, pk):
     
     if form.is_valid():
         form.instance.internship = Internship.objects.filter(id = pk).first()
-        form.instance.applied_by = request.user.User
+        form.instance.applied_by = request.user
         form.save()
         return redirect('internship-detail', pk)
 

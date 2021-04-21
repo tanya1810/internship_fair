@@ -28,7 +28,7 @@ class Internship(models.Model):
 
     who_should_apply = models.CharField(max_length=200)
 
-    domain = models.BooleanField(default=True)
+    domain = models.ManyToManyField(Domains)
 
     def __str__(self):
         return self.company_name + "(" + str(self.id) + ")"
@@ -54,10 +54,9 @@ class Internship(models.Model):
 
 class InternshipApplication(models.Model):
     internship = models.ForeignKey(Internship, on_delete=models.CASCADE, default='', related_name='internship')
-    message = models.TextField(max_length = 1200, blank=True, default='')
     applied_by = models.ForeignKey(User, on_delete=models.CASCADE, default='', related_name='intern')
     resume = models.URLField(default='', help_text='Add the drive link to your resume.')
-    domain = models.BooleanField(default=True)
+    domain = models.ManyToManyField(Domains)
 
     
     def __str__(self):

@@ -78,7 +78,7 @@ def InternshipApplicationView(request, pk):
     context = {
         'form': form
     }
-    return render(request, 'home/apply.html', context)
+    return render(request, 'home/internship_application.html', context)
 
 
 

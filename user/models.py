@@ -18,7 +18,8 @@ class User(AbstractUser):
     username = None
     name = models.CharField(max_length=60, default='')
     email = models.EmailField(verbose_name='Email Address', unique=True)
-    contact 			= PhoneNumberField(default='+919999999999', blank=False) 
+    contact 			= PhoneNumberField(default='+919999999999', blank=False)
+    no = models.IntegerField(default=0) 
     
     
     USERNAME_FIELD = 'email'

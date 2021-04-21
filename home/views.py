@@ -58,13 +58,14 @@ def InternshipApplicationView(request, pk):
     internship = Internship.objects.filter(id=pk).first()
     applied_by = InternshipApplication.objects.filter(applied_by=request.user)
     date = datetime.date.today()
+    u = request.user
     for applicant in applied_by:
         if(internship == applicant.internship):
             messages.success(request, f'You have already applied for that internship.')
             return redirect('internship-detail', pk)
     
-    if(internship == None or date > internship.apply_by):
-        messages.success(request, f'Applications for this internship closed.')
+    if(internship == None or u.no>10):
+        messages.success(request, f'You have already applied for 10 Internships')
         return redirect('internships', pg = pg)
 
     form = ApplicationForm(request.POST or None)
@@ -73,6 +74,9 @@ def InternshipApplicationView(request, pk):
         form.instance.internship = Internship.objects.filter(id = pk).first()
         form.instance.applied_by = request.user.User
         form.save()
+        u.no +=1
+        u.save()
+        messages.success(request, f'Successfully Applied for this.')
         return redirect('internship-detail', pk)
 
     context = {

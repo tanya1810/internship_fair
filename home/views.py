@@ -39,16 +39,16 @@ def Internships(request, pg=1):
     }
     return render(request, 'home/index.html', context)
 
-# def MyInternships(request):
-#     pg = 1
-#     if(request.user.is_authenticated):
-#         internships = InternshipApplication.objects.filter(applied_by=request.user.student_profile)
-#         context = {
-#             'internships': internships,
-#         }
-#         return render(request, 'internshipPortal/MyInternshipStudent.html', context)
-#     else:
-#         redirect(internships, pg=pg)
+def MyInternships(request):
+    pg = 1
+    if(request.user.is_authenticated):
+        internships = InternshipApplication.objects.filter(applied_by=request.user)
+        context = {
+            'internships': internships,
+        }
+        return render(request, 'home/MyInternship.html', context)
+    else:
+        redirect(internships, pg=pg)
     
     
 
@@ -56,7 +56,7 @@ def Internships(request, pg=1):
 def InternshipApplicationView(request, pk):
     pg = 1
     internship = Internship.objects.filter(id=pk).first()
-    applied_by = InternshipApplication.objects.filter(applied_by=request.user.User)
+    applied_by = InternshipApplication.objects.filter(applied_by=request.user)
     date = datetime.date.today()
     for applicant in applied_by:
         if(internship == applicant.internship):
@@ -66,7 +66,6 @@ def InternshipApplicationView(request, pk):
     if(internship == None or date > internship.apply_by):
         messages.success(request, f'Applications for this internship closed.')
         return redirect('internships', pg = pg)
-        
 
     form = ApplicationForm(request.POST or None)
     
@@ -79,7 +78,7 @@ def InternshipApplicationView(request, pk):
     context = {
         'form': form
     }
-    return render(request, 'home/application.html', context)
+    return render(request, 'home/apply.html', context)
 
 
 

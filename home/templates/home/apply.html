@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		
+	</title>
+</head>
+<body>
+
+	<form class="form1" method="POST" action="">
+        {% csrf_token %}
+        <br>
+        {{ form }}
+        <div class="form-group" >
+            <input type="submit" value="Place Your Bid">
+        </div>
+    </form>
+</body>
+</html>

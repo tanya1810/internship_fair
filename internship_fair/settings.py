@@ -120,10 +120,13 @@ AUTH_USER_MODEL = "user.User"
 PHONENUMBER_DB_FORMAT = 'NATIONAL'
 PHONENUMBER_DEFAULT_REGION = "IN"
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-LOGOUT_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'internships'
+LOGIN_REDIRECT_URL = 'home'

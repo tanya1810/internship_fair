@@ -7,10 +7,11 @@ from django.urls import reverse_lazy, reverse
 from django.utils.decorators import method_decorator
 from django.views.generic import DetailView, UpdateView, DeleteView
 from .forms import InternshipForm, ApplicationForm
-from .models import Internship, InternshipApplication
+from .models import Internship, InternshipApplication, Domains
 import datetime, xlwt
 from django.db.models import Q
 from django.core.paginator import Paginator
+import mimetypes
 
 
 def Internships(request, pg=1):
@@ -29,7 +30,7 @@ def Internships(request, pg=1):
             Q(perks=query) 
             ).distinct()
 
-    paginator = Paginator(internship, 8)
+    paginator = Paginator(internship, 1)
 
     context = {
         'Intern': paginator.page(pg),
@@ -39,16 +40,16 @@ def Internships(request, pg=1):
     }
     return render(request, 'home/index.html', context)
 
-# def MyInternships(request):
-#     pg = 1
-#     if(request.user.is_authenticated):
-#         internships = InternshipApplication.objects.filter(applied_by=request.user.student_profile)
-#         context = {
-#             'internships': internships,
-#         }
-#         return render(request, 'internshipPortal/MyInternshipStudent.html', context)
-#     else:
-#         redirect(internships, pg=pg)
+def MyInternships(request):
+    pg = 1
+    if(request.user.is_authenticated):
+        internships = InternshipApplication.objects.filter(applied_by=request.user)
+        context = {
+            'internships': internships,
+        }
+        return render(request, 'home/MyInternship.html', context)
+    else:
+        redirect(internships, pg=pg)
     
     
 
@@ -56,7 +57,8 @@ def Internships(request, pg=1):
 def InternshipApplicationView(request, pk):
     pg = 1
     internship = Internship.objects.filter(id=pk).first()
-    applied_by = InternshipApplication.objects.filter(applied_by=request.user.student_profile)
+    field = Domains.objects.filter(internship=internship)
+    applied_by = InternshipApplication.objects.filter(applied_by=request.user)
     date = datetime.date.today()
     for applicant in applied_by:
         if(internship == applicant.internship):
@@ -66,20 +68,22 @@ def InternshipApplicationView(request, pk):
     if(internship == None or date > internship.apply_by):
         messages.success(request, f'Applications for this internship closed.')
         return redirect('internships', pg = pg)
-        
 
     form = ApplicationForm(request.POST or None)
-    
+
+
     if form.is_valid():
         form.instance.internship = Internship.objects.filter(id = pk).first()
-        form.instance.applied_by = request.user.student_profile
+        form.instance.applied_by = request.user
         form.save()
         return redirect('internship-detail', pk)
 
     context = {
-        'form': form
+        'form': form,
+        'internship':internship,
+        'field':field
     }
-    return render(request, 'internshipPortal/application.html', context)
+    return render(request, 'home/internship_application.html', context)
 
 
 
@@ -89,7 +93,7 @@ def InternshipDetailView(request, pk):
 
     internship = Internship.objects.filter(id=pk).first()
     if(request.user.is_authenticated):
-        applied_by = InternshipApplication.objects.filter(applied_by=request.user.student_profile)
+        applied_by = InternshipApplication.objects.filter(applied_by=request.user)
         for applicant in applied_by:
             if(internship == applicant.internship):
                 applied = True
@@ -99,7 +103,8 @@ def InternshipDetailView(request, pk):
         'applied' : applied,
     }
 
-    return render(request, 'internshipPortal/internship_detail.html', context)
+    return render(request, 'home/internship_detail.html', context)
+
 
 
 

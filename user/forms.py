@@ -9,11 +9,11 @@ class UserRegistrationForm(UserCreationForm):
 	email 				= forms.EmailField(help_text='Email Id used for registration cannot be changed later.')
 	name 				= forms.CharField(max_length=60)
 	contact 			= PhoneNumberField(widget=forms.TextInput(attrs={'placeholder': ('')}), label=("Phone number"), required=False, help_text='Add Country Code before your contact number.') 
-	resume 				= forms.URLField(help_text='Add the drive link to your resume.')
+	
 
 	class Meta(UserCreationForm.Meta):
 		model 	= User
-		fields 	= ['name', 'email', 'contact','resume', 'password1', 'password2']
+		fields 	= ['name', 'email', 'contact', 'password1', 'password2']
 	
 	@transaction.atomic
 	def clean(self):

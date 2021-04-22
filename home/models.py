@@ -5,8 +5,17 @@ from markdown_deux import markdown
 from django.utils.safestring import mark_safe
 from phonenumber_field.modelfields import PhoneNumberField
 
+class Domains(models.Model):
+    domain = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.domain
+        
+
 class Internship(models.Model):
-    startup = models.CharField(max_length=100, default='')
+    company_name = models.CharField(max_length=100, default='')
+    company_logo = models.ImageField(default='logo/download.png', upload_to='logo/')
+    start_by = models.DateField(default='2000-01-01', help_text='YYYY-MM-DD Format should be followed for the date.')
     field_of_internship = models.CharField(max_length=100, default='')
     duration = models.CharField(max_length=20)
     about = models.TextField()
@@ -16,11 +25,12 @@ class Internship(models.Model):
     no_of_internships = models.PositiveIntegerField()
     perks = models.CharField(max_length=100)
     apply_by = models.DateField(default='2000-01-01', help_text='YYYY-MM-DD Format should be followed for the date.')
-
+    meet_link = models.URLField(default='', help_text='Add the drive link to your resume.')
     who_should_apply = models.CharField(max_length=200)
+    domain = models.ManyToManyField(Domains)
 
     def __str__(self):
-        return self.startup.startup_name + "(" + str(self.id) + ")"
+        return self.company_name + "(" + str(self.id) + ")"
 
     def get_absolute_url(self):
         return reverse('internship-detail', kwargs={'pk' : self.pk})
@@ -44,10 +54,14 @@ class Internship(models.Model):
 class InternshipApplication(models.Model):
     internship = models.ForeignKey(Internship, on_delete=models.CASCADE, default='', related_name='internship')
     applied_by = models.ForeignKey(User, on_delete=models.CASCADE, default='', related_name='intern')
+    resume = models.URLField(default='', help_text='Add the drive link to your resume.')
+    domain = models.ManyToManyField(Domains)
+
     
     def __str__(self):
-        return self.internship.startup.startup_name + "(" + str(self.internship.id) + ")" + " - " + self.applied_by.name
+        return self.internship.company_name + "(" + str(self.internship.id) + ")" + " - " + self.applied_by.name
 
     def message_markdown(self):
         message = self.message
         return mark_safe(markdown(message))
+

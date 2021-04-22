@@ -6,6 +6,9 @@ class InternshipForm(forms.ModelForm):
     class Meta:
         model = Internship
         fields = [
+            'company_name',
+            'company_logo',
+            'start_by',
             'field_of_internship',
             'duration',
             'about',
@@ -16,12 +19,18 @@ class InternshipForm(forms.ModelForm):
             'perks',
             'who_should_apply',
             'apply_by',
+            'meet_link',
         ]
 
 
 class ApplicationForm(forms.ModelForm):
+    domain = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+    )
     class Meta:
         model = InternshipApplication
         fields = [
-            
+            'domain',
+            'resume',
         ]

@@ -1,0 +1,46 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block head %}
+<meta charset="UTF-8">
+  <title>Login</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+  <link rel="stylesheet" href="{% static 'home/style4.css' %}">
+{% endblock head %}
+{% block body %}
+
+
+
+<section class="login bg-gradient-overlay" style="padding-top: 130px;">
+    <div class="container">
+      <h3 class="title" style="color: white;">Application for {{internship.company_name}}</h3>
+
+
+
+      
+      <form method="POST">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            
+        </div>
+        {{internship.domain_set}}
+        {% for x in field %}
+        <div class="form-group">
+            <label for="id_domain">{{x}}</label>
+            <input type="checkbox" name="" id="id_domain" checked="">          
+        </div>
+        {% endfor %}
+
+        <div class="form-group">
+            <label for="id_resume">Resume:</label>
+            <input type="url" name="resume" maxlength="200" required="" id="id_resume">          
+        </div>
+        
+        <button type="submit">Apply</button>
+      </form>
+      
+      
+      
+    </div>
+</section>
+{% endblock body %}

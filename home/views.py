@@ -14,6 +14,10 @@ from django.core.paginator import Paginator
 import mimetypes
 
 
+def home(request):
+    return render(request, 'home/index.html')
+
+
 def Internships(request, pg=1):
     internship = Internship.objects.all().order_by('-apply_by')
 
@@ -38,7 +42,7 @@ def Internships(request, pg=1):
       	'paginator': paginator,
         'internships': paginator.page(pg)
     }
-    return render(request, 'home/index.html', context)
+    return render(request, 'home/internships.html', context)
 
 def MyInternships(request):
     pg = 1

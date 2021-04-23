@@ -25,6 +25,7 @@ class Internship(models.Model):
     no_of_internships = models.PositiveIntegerField()
     perks = models.CharField(max_length=100)
     apply_by = models.DateField(default='2000-01-01', help_text='YYYY-MM-DD Format should be followed for the date.')
+    is_meet = models.BooleanField(default=True)
     meet_link = models.URLField(default='', help_text='Add the drive link to your resume.')
     who_should_apply = models.CharField(max_length=200)
     domain = models.ManyToManyField(Domains)

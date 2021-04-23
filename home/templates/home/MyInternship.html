@@ -1,9 +1,13 @@
 {% extends "home/base.html" %}
 {% load static %}
+{% block head %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% endblock head %}
 {% block body %}
 
 	
-
 
 	<section class="our-blog-area bg-img bg-gradient-overlay section-padding-100-60" style="background-image: url(img/bg-img/17.jpg);">
 		<div class="container">
@@ -11,15 +15,17 @@
 				<div class="col-12">
 					
 				</div>
-                {% for internship in internships %}
+				{% for internship in internships %}
 					<div class="col-12 col-md-6 col-lg-4">
 						<div class="single-blog-area wow fadeInUp" data-wow-delay="300ms">
 							<div class="single-blog-thumb">
 								<img src="img/bg-img/18.jpg" alt="">
 							</div>
 							<div class="single-blog-text text-center">
-								<img style="height: 15em; width: 15em;" src="{{ internship.company_logo.url }}">
-								<a class="blog-title" style="padding-bottom: 10px;" href="#">{{ internship.company_name }}</a>
+								<img style="height: 15em; width: 15em;" src="{{internship.company_logo.url}}">
+								<div>
+									<a class="blog-title" style="padding-bottom: 10px;" href="#">{{ internship.company_name }}</a>
+								</div>
 							
 									<!-- <div class="post-meta">
 										<a class="post-date" href="#"><i class="zmdi zmdi-alarm-check"></i> January 14, 2019</a>
@@ -29,7 +35,9 @@
 							{% if user.is_authenticated %}
 								<div>
 									<a class="btn btn-info btn-sm btn-collapsible" href="{% url 'internship-detail' internship.id %}"> <span>View More</span></a>
-									<a class="btn btn-info btn-sm btn-collapsible" href="#"><span>Join Google Meet</span></a>
+									{% if internship.is_meet %}
+										<a class="btn btn-info btn-sm btn-collapsible" href="{{internship.meet_link}}"><span>Join Google Meet</span></a>
+									{% endif %}
 								</div>
 							{% endif %}
 							</div>
@@ -37,6 +45,33 @@
 						</div>
 					</div>
 				{% endfor %}
+				<!-- <div id="post-496"
+                class=" spaudio-post blogs-featured blogs-style2 blogs-style1 spcard post-496 post type-post status-publish format-audio has-post-thumbnail hentry category-art category-blog category-retro tag-country tag-natur tag-photo tag-photog post_format-post-format-audio"
+                style="margin-top: 30px; width: 100%;"> -->
+                <!-- <div class="container">
+                    <ul class="pager" style="
+                          display: flex;
+                          flex-direction: row;
+                          flex-wrap: wrap;
+                          justify-content: center;
+                        ">
+                        {% if Intern.has_previous %}
+                        <li>
+                            <a class="page-selector" href="{% url 'internships'  page|add:'-1' %}">&laquo;</a>
+                        </li>
+                        {% endif %} {% for p in paginator.page_range %} {% if p == page %}
+                        {% else %}
+                        <li>
+                            <a  href="{% url 'internships' p %}" class="inactive">{{p}}</a>
+                        </li>
+                        {% endif %} {% endfor %} {% if Intern.has_next %}
+                        <li>
+                            <a class="page-selector" href="{% url 'internships' page|add:'+1' %}">&raquo;</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div> -->
+            </div>
 			</div>
 		</div>
 	</section>

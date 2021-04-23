@@ -538,7 +538,7 @@
                                     <li><a href="{% url 'login' %}">Internships</a></li>
                                 {% endif %}
                                 {% if user.is_authenticated %}
-                                    <li><a href="#">Sample CV</a></li>
+                                    <li><a href="https://drive.google.com/file/d/1ennUUGxuGyuzK6EN5hhUH217GF_1gUx5/view?usp=sharing" target="_blank">Sample CV</a></li>
                                     <li><a href="#">Hi {{user.name}}</a>
                                         <ul class="dropdown">
                                             <li><a href="{% url 'my-internships' %}">My Internships</a></li>
@@ -560,6 +560,14 @@
 				</nav>
 			</div>
 		</div>
+        {% if messages %}
+		{% for message in messages %}
+		<ul class="messages"
+			style="background: #FCFF00; width: 100%; margin-top: 20vh ; color: black; text-align: center; margin: 0px; padding: 10px;">
+			<h1 style="font-weight: 600; font-size: 25px; margin: 0px;">{{ message }}</h1>
+		</ul>
+		{% endfor %}
+		{% endif %}
 	</header>
 
 

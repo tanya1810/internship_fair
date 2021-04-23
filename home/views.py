@@ -34,7 +34,7 @@ def Internships(request, pg=1):
             Q(perks=query) 
             ).distinct()
 
-    paginator = Paginator(internship, 1)
+    paginator = Paginator(internship, 100)
 
     context = {
         'Intern': paginator.page(pg),
@@ -47,7 +47,7 @@ def Internships(request, pg=1):
 def MyInternships(request):
     pg = 1
     if(request.user.is_authenticated):
-        internships = InternshipApplication.objects.filter(applied_by=request.user)
+        internships = Internship.objects.filter(internship__applied_by=request.user)
         context = {
             'internships': internships,
         }
@@ -66,11 +66,11 @@ def InternshipApplicationView(request, pk):
     date = datetime.date.today()
     for applicant in applied_by:
         if(internship == applicant.internship):
-            messages.success(request, f'You have already applied for that internship.')
+            messages.success(request, f'You have already applied for this internship.')
             return redirect('internship-detail', pk)
     
     if(internship == None or date > internship.apply_by):
-        messages.success(request, f'Applications for this internship closed.')
+        messages.success(request, f'Applications for this internship is closed.')
         return redirect('internships', pg = pg)
 
     form = ApplicationForm(request.POST or None)
@@ -80,6 +80,7 @@ def InternshipApplicationView(request, pk):
         form.instance.internship = Internship.objects.filter(id = pk).first()
         form.instance.applied_by = request.user
         form.save()
+        messages.success(request, f'You have successfully applied for this internship.')
         return redirect('internship-detail', pk)
 
     context = {

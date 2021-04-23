@@ -22,7 +22,7 @@
 								<img src="img/bg-img/18.jpg" alt="">
 							</div>
 							<div class="single-blog-text text-center">
-								<img style="height: 15em; width: 15em;" src="{{ internship.company_logo.url }}">
+								<img style="height: 15em; width: 15em;" src="{{internship.company_logo.url}}">
 								<div>
 									<a class="blog-title" style="padding-bottom: 10px;" href="#">{{ internship.company_name }}</a>
 								</div>
@@ -35,7 +35,9 @@
 							{% if user.is_authenticated %}
 								<div>
 									<a class="btn btn-info btn-sm btn-collapsible" href="{% url 'internship-detail' internship.id %}"> <span>View More</span></a>
-									<a class="btn btn-info btn-sm btn-collapsible" href="{{meet_link}}"><span>Join Google Meet</span></a>
+									{% if internship.is_meet %}
+										<a class="btn btn-info btn-sm btn-collapsible" href="{{internship.meet_link}}"><span>Join Google Meet</span></a>
+									{% endif %}
 								</div>
 							{% endif %}
 							</div>
@@ -46,7 +48,7 @@
 				<!-- <div id="post-496"
                 class=" spaudio-post blogs-featured blogs-style2 blogs-style1 spcard post-496 post type-post status-publish format-audio has-post-thumbnail hentry category-art category-blog category-retro tag-country tag-natur tag-photo tag-photog post_format-post-format-audio"
                 style="margin-top: 30px; width: 100%;"> -->
-                <div class="container">
+                <!-- <div class="container">
                     <ul class="pager" style="
                           display: flex;
                           flex-direction: row;
@@ -68,7 +70,7 @@
                         </li>
                         {% endif %}
                     </ul>
-                </div>
+                </div> -->
             </div>
 			</div>
 		</div>

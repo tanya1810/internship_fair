@@ -26,6 +26,20 @@
 	<!-- Template Main CSS File -->
 	<link href="{% static 'home/assets/css/style.css' %}" rel="stylesheet">
 
+	<style>
+		@media(max-width: 993px){
+			#logo {
+				height: 3em;
+				width: 3em;
+			}
+		}
+		@media(min-width: 993px){
+			#info {
+				margin-left: 50px;
+			}
+		}
+	</style>
+
 
 {% endblock head %}
 
@@ -53,68 +67,64 @@
 			  <article class="entry entry-single">
   
 				<div class="entry-img">
-				  <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
+				  <img src="" alt="" class="img-fluid">
 				</div>
-  
-				<h2 class="entry-title" style="padding-bottom: 40px;">
-				  {{object.company_name}}
-				</h2>
+				<div style="display: flex;">
+					<h2 class="entry-title" style="padding-bottom: 40px;">
+						{{object.company_name}}
+					</h2>
+					<img id="logo" src="{{object.company_logo.url}}" style="height: 10em; width: 10em; position: absolute; right: 50px;">
+				</div>
 
 				<div class="entry-meta">
 					<ul>
-					  <li class="d-flex align-items-center" style="margin-right: 50px;"><i class="bi bi-map"></i>Location</li>
+						<div style="display: flex; flex-direction: column;">
+							<li class="d-flex align-items-center" style="margin-right: 50px;"><i class="bi bi-map"></i>Location</li>
+							<li class="d-flex align-items-center" style="margin-right: 50px;"><p>{{object.location}}</p></li>
+						</div>
 					</ul>
 				</div>
-				<div class="entry-meta">
-					<ul>
-						<li class="d-flex align-items-center" style="margin-right: 50px;"><p>{{object.location}}</p></li>
-					</ul>
-				</div>
+			
   
-				<div class="entry-meta">
+				<div class="entry-meta" style="display: flex; flex-direction: row; flex-wrap: wrap;">
 				  <ul>
-					<li class="d-flex align-items-center" style="margin-right: 50px;"><i class="bi bi-clock"></i> <a href="blog-single.html">Start Date</a></li>
-					<li class="d-flex align-items-center" style="margin-right: 50px; margin-left: 50px;"><i class="bi bi-calendar"></i> <a href="blog-single.html">Duration</a></li>
-					<li class="d-flex align-items-center" style="margin-right: 50px; margin-left: 50px;"><i class="bi bi-clock"></i> <a href="blog-single.html">Apply-by</a></li>
-					<li class="d-flex align-items-center" style="margin-right: 50px; margin-left: 50px;"><i class="bi bi-envelope"></i> <a href="blog-single.html">Stipend</a></li>
+					<div style="display: flex; flex-direction: column;">
+						<li class="d-flex align-items-center" style="margin-right: 50px;"><i class="bi bi-clock"></i> <a href="blog-single.html">Start Date</a></li>
+						<li class="d-flex align-items-center" style="margin-right: 50px;"><p>{{object.start_by}}</p></li>
+					</div>
+					<div style="display: flex; flex-direction: column;">
+						<li id="info" class="d-flex align-items-center" style="margin-right: 50px;"><i class="bi bi-calendar"></i> <a href="blog-single.html">Duration</a></li>
+						<li id="info" class="d-flex align-items-center" style="margin-right: 50px;"><p>{{object.duration}}</p></li>
+					</div>
+					<div style="display: flex; flex-direction: column;">
+						<li id="info" class="d-flex align-items-center" style="margin-right: 50px;"><i class="bi bi-clock"></i> <a href="blog-single.html">Apply-by</a></li>
+						<li id="info" class="d-flex align-items-center" style="margin-right: 50px;"><p>{{object.apply_by}}</p></li>
+					</div>
+					<div style="display: flex; flex-direction: column;">
+						<li id="info" class="d-flex align-items-center" style="margin-right: 50px;"><i class="bi bi-envelope"></i> <a href="blog-single.html">Stipend</a></li>
+						<li id="info" class="d-flex align-items-center" style="margin-right: 50px;"><p>{{object.stipend}}</p></li>
+					</div>
 				  </ul>
 				</div>
-				<div class="entry-meta">
-					<ul>
-						<li class="d-flex align-items-center" style="margin-right: 50px;"><p>{{object.start_by}}</p></li>
-						<li class="d-flex align-items-center" style="margin-right: 50px; margin-left: 50px;"><p>{{object.duration}}</p></li>
-						<li class="d-flex align-items-center" style="margin-right: 50px; margin-left: 50px;"><p>{{object.apply_by}}</p></li>
-						<li class="d-flex align-items-center" style="margin-right: 50px; margin-left: 50px;"><p>{{object.stipend}}</p></li>
-					</ul>
-				</div>
+
   
 				<div class="entry-content">
 				  <h3>About</h3>
 				  <p>
 					{{object.about}}
 				  </p>
-  
-				  <h3>Field Of Internship</h3>
-				  <p>
-					{{object.field_of_internship}}
-				  </p>
-				  <h3>Skills Required</h3>
-				  <p>
-					{{object.skills_required}}
-				  </p>
-				  <h3>Perks</h3>
-				  <p>
-					{{object.perks}}
-				  </p>
-				  <h3>No. of Internships</h3>
-				  <p>
-					{{object.no_of_internships}}
-				  </p>
+					<h3>Field Of Internship</h3>
+						<p>{{object.field_of_internship}}</p>
+						
+						<h3>No. of Internships</h3>
+						<p>
+							{{object.no_of_internships}}
+						</p>
   
 				</div>
 
 				<center>
-					<a class="btn btn-info btn-sm btn-collapsible" href=""> <span>Apply Now</span></a>
+					<a class="btn btn-info btn-sm btn-collapsible" href="{% url 'internship-application' object.id %}"  style="padding-top: 15px; padding-bottom: 15px; padding-right: 25px; padding-left: 25px;"> <span style="font-size: 20px;" >Apply Now</span></a>
 				</center>
 
 				

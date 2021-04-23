@@ -20,16 +20,13 @@
       <form method="POST">
         {% csrf_token %}
         
+        
         <div class="form-group">
-            
+            <label style=" display: flex; flex-direction: row;" for="id_domain_{{x}}">Domains in which you want to apply:</label><br>          
+            {% for x in field %}
+                <input style="height: 15px; width: 15px; padding: 0 2rem;" type="checkbox" name="" id="id_domain_{{x}}">&nbsp;{{x}}
+            {% endfor %}
         </div>
-        {{internship.domain_set}}
-        {% for x in field %}
-        <div class="form-group">
-            <label for="id_domain">{{x}}</label>
-            <input type="checkbox" name="" id="id_domain" checked="">          
-        </div>
-        {% endfor %}
 
         <div class="form-group">
             <label for="id_resume">Resume:</label>

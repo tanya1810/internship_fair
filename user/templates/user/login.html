@@ -1,20 +1,16 @@
+{% extends "home/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
+{% block head %}
+<meta charset="UTF-8">
   <title>Login</title>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
   <link rel="stylesheet" href="{% static 'home/style3.css' %}">
-  <style>
-	  
+{% endblock head %}
+{% block body %}
 
-  </style>
-</head>
-<body>
-	<section class="login">
+	<section class="login bg-gradient-overlay" style="padding-top: 130px;">
 		<div class="container">
-		  <h3 class="title">Login</h3>
+		  <h3 class="title" style="color: white;">Login</h3>
 
 
 
@@ -39,5 +35,4 @@
 		  
 		</div>
 	</section>
-</body>
-</html>
+{% endblock body %}

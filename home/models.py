@@ -20,7 +20,7 @@ class Internship(models.Model):
     about = models.TextField()
     location = models.CharField(max_length=100)
     stipend = models.CharField(max_length=100)
-    no_of_internships = models.PositiveIntegerField()
+    no_of_internships = models.CharField(max_length=100)
     apply_by = models.DateField(default='2021-04-25', help_text='YYYY-MM-DD Format should be followed for the date.')
     is_meet = models.BooleanField(default=True)
     meet_link = models.URLField(blank=True, default='', help_text='Add the drive link to your resume.')

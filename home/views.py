@@ -79,9 +79,15 @@ def InternshipApplicationView(request, pk):
     print(form.errors)
 
     if form.is_valid():
+        u=request.user
+        if(u.count>=10):
+            messages.success(request, f'You have already applied for 10 internships. You can check for the companies you have applied for in the My-Internships section.')
+            return redirect('internships', pg = pg)
         form.instance.internship = Internship.objects.filter(id = pk).first()
         form.instance.applied_by = request.user
         # form.instance.field = Domains.objects.filter(internship=internship)
+        u.count+=1
+        u.save()
         form.save()
         messages.success(request, f'You have successfully applied for this internship.')
         return redirect('internship-detail', pk)

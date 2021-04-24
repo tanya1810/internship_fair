@@ -17,4 +17,6 @@ urlpatterns = [
          views.InternshipDetailView,             name='internship-detail'),
     path('internships/<int:pk>/application/',
          views.InternshipApplicationView,        name='internship-application'),
+     path('download/<int:pk>/',                  views.exceldownload,
+         name='excel-download'),
 ]

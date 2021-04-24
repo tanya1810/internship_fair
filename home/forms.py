@@ -1,5 +1,5 @@
 from django import forms
-from .models import Internship, InternshipApplication
+from .models import Internship, InternshipApplication, Domains
 
 
 class InternshipForm(forms.ModelForm):
@@ -20,10 +20,11 @@ class InternshipForm(forms.ModelForm):
 
 
 class ApplicationForm(forms.ModelForm):
-    domain = forms.MultipleChoiceField(
-        required=False,
-        widget=forms.CheckboxSelectMultiple,
-    )
+    # domain = forms.ModelMultipleChoiceField(
+    #     required=False,
+    #     widget=forms.CheckboxSelectMultiple,
+    #     queryset=Domains.objects.all(),
+    # )
     class Meta:
         model = InternshipApplication
         fields = [

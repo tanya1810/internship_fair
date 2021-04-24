@@ -19,12 +19,13 @@
       
       <form method="POST">
         {% csrf_token %}
+        <!-- {{form}} -->
         
         
         <div class="form-group">
             <label style=" display: flex; flex-direction: row;" for="id_domain_{{x}}">Domains in which you want to apply:</label><br>          
             {% for x in field %}
-                <input style="height: 15px; width: 15px; padding: 0 2rem;" type="checkbox" name="" id="id_domain_{{x}}">&nbsp;{{x}}
+                <input style="height: 15px; width: 15px; padding: 0 2rem;" type="checkbox" name="domain" value="{{x.id}}" id="id_domain_{{x}}">&nbsp;{{x}}
             {% endfor %}
         </div>
 

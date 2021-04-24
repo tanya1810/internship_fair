@@ -1,4 +1,6 @@
-{% extends "home/base.html" %} {% load static %} {% block head %}
+{% extends "home/base.html" %} 
+{% load static %} 
+{% block head %}
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -40,7 +42,8 @@
 </style>
 
 
-{% endblock head %} {% block body %}
+{% endblock head %} 
+{% block body %}
 
 <!-- ======= Header ======= -->
 
@@ -88,25 +91,25 @@
                         <div class="entry-meta" style="display: flex; flex-direction: row; flex-wrap: wrap;">
                             <ul>
                                 <div style="display: flex; flex-direction: column;">
-                                    <li class="d-flex align-items-center" style="margin-right: 50px;"><i class="bi bi-clock"></i> <a href="blog-single.html">Start Date</a></li>
+                                    <li class="d-flex align-items-center" style="margin-right: 50px;"><i class="bi bi-clock"></i> <a href="">Start Date</a></li>
                                     <li class="d-flex align-items-center" style="margin-right: 50px;">
                                         <p>{{object.start_by}}</p>
                                     </li>
                                 </div>
                                 <div style="display: flex; flex-direction: column;">
-                                    <li id="info" class="d-flex align-items-center" style="margin-right: 50px;"><i class="bi bi-calendar"></i> <a href="blog-single.html">Duration</a></li>
+                                    <li id="info" class="d-flex align-items-center" style="margin-right: 50px;"><i class="bi bi-calendar"></i> <a href="">Duration</a></li>
                                     <li id="info" class="d-flex align-items-center" style="margin-right: 50px;">
                                         <p>{{object.duration}}</p>
                                     </li>
                                 </div>
                                 <div style="display: flex; flex-direction: column;">
-                                    <li id="info" class="d-flex align-items-center" style="margin-right: 50px;"><i class="bi bi-clock"></i> <a href="blog-single.html">Apply-by</a></li>
+                                    <li id="info" class="d-flex align-items-center" style="margin-right: 50px;"><i class="bi bi-clock"></i> <a href="">Apply-by</a></li>
                                     <li id="info" class="d-flex align-items-center" style="margin-right: 50px;">
                                         <p>{{object.apply_by}}</p>
                                     </li>
                                 </div>
                                 <div style="display: flex; flex-direction: column;">
-                                    <li id="info" class="d-flex align-items-center" style="margin-right: 50px;"><i class="bi bi-envelope"></i> <a href="blog-single.html">Stipend</a></li>
+                                    <li id="info" class="d-flex align-items-center" style="margin-right: 50px;"><i class="bi bi-envelope"></i> <a href="">Stipend</a></li>
                                     <li id="info" class="d-flex align-items-center" style="margin-right: 50px;">
                                         <p>{{object.stipend}}</p>
                                     </li>
@@ -121,7 +124,9 @@
                                 {{object.about}}
                             </p>
                             <h3>Field Of Internship</h3>
-                            <p>{{field}}</p>
+                            {% for x in field %}
+                                <p>{{x}}</p>
+                            {% endfor %}
 
                             <h3>No. of Internships</h3>
                             <p>
@@ -151,13 +156,13 @@
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="assets/vendor/php-email-form/validate.js"></script>
-<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="{% static 'home/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'home/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'home/assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'home/assets/vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'home/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
 
 <!-- Template Main JS File -->
-<script src="assets/js/main.js"></script>
+<script src="{% static 'home/assets/js/main.js' %}"></script>
 
 {% endblock body %}

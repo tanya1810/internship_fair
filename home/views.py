@@ -75,11 +75,13 @@ def InternshipApplicationView(request, pk):
 
     form = ApplicationForm(request.POST or None)
 
+    print(form.is_valid())
+    print(form.errors)
 
     if form.is_valid():
         form.instance.internship = Internship.objects.filter(id = pk).first()
         form.instance.applied_by = request.user
-        form.instance.field = Domains.objects.filter(internship=internship)
+        # form.instance.field = Domains.objects.filter(internship=internship)
         form.save()
         messages.success(request, f'You have successfully applied for this internship.')
         return redirect('internship-detail', pk)
@@ -108,9 +110,77 @@ def InternshipDetailView(request, pk):
     context = {
         'object' : internship,
         'applied' : applied,
+        'field': field,
     }
 
     return render(request, 'home/internship_detail.html', context)
+
+
+def exceldownload(request, pk = None):
+    internship = Internship.objects.filter(id=pk).first()
+    if request.user.is_authenticated: 
+        response = HttpResponse(content_type='application/ms-excel')
+        response['Content-Disposition'] = 'attachment; filename="Internship Applications.xls"'
+
+        wb = xlwt.Workbook(encoding='utf-8')
+        ws = wb.add_sheet(internship.domain) # this will make a sheet named Users Data
+
+        row_num = 0
+
+        style = 'font: bold 1; border: top thick, right thick, bottom thick, left thick;'
+        font_style = xlwt.easyxf(style)
+        columns = ['Resume', 'Name', 'E-mail', 'Contact No.']
+
+        for col_num in range(len(columns)):
+            ws.write(row_num, col_num, columns[col_num], font_style) # at 0 row 0 column 
+
+        styles = [
+            'align: wrap 1; border: left thick, right thick;',
+            'font: underline 1;',
+            'align: horiz center; border: left thick, right thick;',
+            'border: left thick, right thick;',
+       ]
+
+        rows = InternshipApplication.objects.filter(id=pk).values_list('resume', 'applied_by__name', 'applied_by__email', 'applied_by__contact')
+        for row in rows:
+            row_num += 1
+            for col_num in range(len(row)):
+                if col_num == 0:
+                    font_style = xlwt.easyxf(styles[0])
+                elif col_num == 1:
+                    font_style = xlwt.easyxf(styles[1])
+                elif col_num == 5 or col_num == 6:
+                    font_style = xlwt.easyxf(styles[2])
+                else:
+                    font_style = xlwt.easyxf(styles[3])
+
+                if col_num == 1:
+                    ws.write(row_num, col_num, xlwt.Formula('HYPERLINK("%s")'%row[col_num]), font_style)
+                else:
+                    ws.write(row_num, col_num, row[col_num], font_style)
+
+        font_style = xlwt.easyxf('border: top thick;')
+        row_num += 1
+        for col_num in range(len(columns)):  
+            ws.write(row_num, col_num, "", font_style)
+
+        ws.col(0).width = 256*27
+        ws.col(1).width = 256*20
+        ws.col(2).width = 256*20
+        ws.col(3).width = 256*30
+        ws.col(4).width = 256*25
+        ws.col(5).width = 256*15
+        ws.col(6).width = 256*15
+        ws.col(7).width = 256*20
+        ws.col(8).width = 256*20
+
+        wb.save(response)
+
+        return response
+
+    else:
+        messages.success(request, f'You are not authorised to access this data.')
+        return redirect('abcd')
 
 
 

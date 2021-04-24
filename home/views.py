@@ -79,6 +79,7 @@ def InternshipApplicationView(request, pk):
     if form.is_valid():
         form.instance.internship = Internship.objects.filter(id = pk).first()
         form.instance.applied_by = request.user
+        form.instance.field = Domains.objects.filter(internship=internship)
         form.save()
         messages.success(request, f'You have successfully applied for this internship.')
         return redirect('internship-detail', pk)
@@ -86,7 +87,7 @@ def InternshipApplicationView(request, pk):
     context = {
         'form': form,
         'internship':internship,
-        'field':field
+        'field':field,
     }
     return render(request, 'home/internship_application.html', context)
 
@@ -97,6 +98,7 @@ def InternshipDetailView(request, pk):
     applied = False
 
     internship = Internship.objects.filter(id=pk).first()
+    field = Domains.objects.filter(internship=internship)
     if(request.user.is_authenticated):
         applied_by = InternshipApplication.objects.filter(applied_by=request.user)
         for applicant in applied_by:
